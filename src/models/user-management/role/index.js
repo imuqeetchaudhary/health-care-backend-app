@@ -22,7 +22,7 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { underscored: true, tableName: "role" }
+    { underscored: true, tableName: "ad_role" }
   );
   return Role;
 };
