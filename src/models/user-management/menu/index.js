@@ -1,8 +1,8 @@
 exports.init = (sequelize, DataTypes) => {
   const Menu = sequelize.define(
     "Menu",
-    { 
-      MenuId: {
+    {
+      menuId: {
         type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
@@ -13,6 +13,21 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
       },
+      description: {
+        type: DataTypes.STRING(55),
+        allowNull: false,
+        unique: true,
+      },
+      link: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },
+      icon: {
+        type: DataTypes.STRING(500),
+      },
+      parentId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+      },
       createdBy: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
@@ -22,7 +37,7 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { underscored: true, tableName: "Menu" }
+    { underscored: true, tableName: "ad_menu" }
   );
   return Menu;
 };
