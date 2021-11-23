@@ -14,13 +14,16 @@ db.sequelize = dbClient;
 const user = require("./user-management/user");
 const role = require("./user-management/role");
 const menu = require("./user-management/menu");
+const menuAccessRoles = require("./user-management/menu-access-roles");
 
 const User = user.init(dbClient, DataTypes);
 const Role = role.init(dbClient, DataTypes);
 const Menu = menu.init(dbClient, DataTypes);
+const MenuAccessRoles = menuAccessRoles.init(dbClient, DataTypes);
 
 db.User = User;
 db.Role = Role;
 db.Menu = Menu;
+db.MenuAccessRoles = MenuAccessRoles;
 
 module.exports = db;
