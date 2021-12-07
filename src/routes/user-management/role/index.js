@@ -14,4 +14,10 @@ router.post(
   roleController.createRole
 );
 
+router.get("/get-all", authentication, roleController.getAllRoles);
+
+router.get("/get/:id", authentication, roleController.getSingleRole);
+
+router.delete("/delete/:id", authentication, roleController.deleteRole);
+
 module.exports = router;

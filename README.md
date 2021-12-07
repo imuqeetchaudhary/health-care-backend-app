@@ -41,7 +41,7 @@
 
 ## Routes for Roles
 
-### to created a new role
+### to create a new role
 
 - role/create :post :protected
 
@@ -50,3 +50,15 @@
     description: String,
 }
 ```
+
+### to get all roles
+
+- role/get-all :get :protected
+
+### to get single role
+
+- role/get/:id: :get :protected
+
+### to delete a single role
+
+- role/delete/:id: :delete :protected

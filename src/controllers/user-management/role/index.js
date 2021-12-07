@@ -1,9 +1,6 @@
 const roleService = require("../../../services/user-management/role");
 const { promise } = require("../../../middlewares/promise");
 const Exceptions = require("../../../utils/custom-exceptions");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const config = require("config");
 
 exports.createRole = promise(async (req, res) => {
   const { description } = req.body;
@@ -18,4 +15,26 @@ exports.createRole = promise(async (req, res) => {
     message: "Successfully created new role",
     role,
   });
+});
+
+exports.getAllRoles = promise(async (req, res) => {
+  const role = await roleService.listAllRoles();
+  res.status(200).json({ role });
+});
+
+exports.getSingleRole = promise(async (req, res) => {
+  const { id } = req.params;
+
+  const role = await roleService.findById({ id });
+  res.status(200).json({ role });
+});
+
+exports.deleteRole = promise(async (req, res) => {
+  const { id } = req.params;
+  const roleId = id;
+
+  const deleteRole = await roleService.deleteRole({
+    roleId,
+  });
+  res.status(200).json({ message: "Successfully deleted role" });
 });
