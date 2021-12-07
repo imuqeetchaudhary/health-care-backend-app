@@ -38,3 +38,15 @@
 ### to get a single user
 
 - user/get/:id: :get :protected
+
+## Routes for Roles
+
+### to created a new role
+
+- role/create :post :protected
+
+```js
+{
+    description: String,
+}
+```
