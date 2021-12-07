@@ -20,3 +20,17 @@ exports.saveUser = async ({ email, password, displayName, createdBy }) => {
     throw err;
   }
 };
+
+exports.findByEmail = ({ email }) => {
+  return db.User.findOne({
+    where: { email },
+    ..._prop.hideFieldsCondition(),
+  });
+}
+
+const _prop = {
+  HIDDEN_FIELDS: ["createdAt", "updatedAt", "authType", "email"],
+  hideFieldsCondition: function (...args) {
+    return { attributes: { exclude: [...this.HIDDEN_FIELDS, ...args] } };
+  },
+};

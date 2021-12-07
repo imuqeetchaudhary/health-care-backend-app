@@ -15,3 +15,14 @@
     displayName: String(*),
 }
 ```
+
+### to login a user
+
+- user/login :post :protected
+
+```js
+{
+    email: String(*),
+    password: String(*),
+}
+```

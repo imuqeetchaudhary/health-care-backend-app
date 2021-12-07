@@ -23,3 +23,45 @@ exports.register = promise(async (req, res) => {
     user,
   });
 });
+
+exports.login = promise(async (req, res) => {
+  const { email, password } = req.body;
+  const user = await userService.findByEmail({ email });
+
+  if (!user) {
+    throw new Exceptions.BadRequest({
+      message: "Your credentials not matched",
+    });
+  }
+
+  const isValid = bcrypt.compareSync(password, user.password);
+  if (!isValid) {
+    throw new Exceptions.BadRequest({
+      message: "Your credentials not matched",
+    });
+  }
+
+  const token = jwt.sign(
+    {
+      userId: user.userId,
+      username: user.username,
+      displayName: user.displayName,
+      isActive: user.isActive,
+      isAdmin: user.isAdmin,
+      isSuperuser: user.isSuperuser,
+    },
+    config.get("jwt.secret")
+  );
+
+  const userId = user.userId;
+
+  res.status(200).json({
+    token,
+    userId,
+    username: user.username,
+    displayName: user.displayName,
+    isActive: user.isActive,
+    isAdmin: user.isAdmin,
+    isSuperuser: user.isSuperuser,
+  });
+});
