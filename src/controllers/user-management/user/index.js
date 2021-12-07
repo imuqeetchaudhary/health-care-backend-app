@@ -65,3 +65,24 @@ exports.login = promise(async (req, res) => {
     isSuperuser: user.isSuperuser,
   });
 });
+
+exports.profile = promise(async (req, res) => {
+  const id = req.user.userId;
+
+  const user = await userService.findById({ id });
+
+  res.status(200).json({ user });
+});
+
+exports.getAllUsers = promise(async (req, res) => {
+  const user = await userService.listAllUsers();
+  res.status(200).json({ user });
+});
+
+exports.getSingleUser = promise(async (req, res) => {
+  const { id } = req.params;
+
+  const user = await userService.findById({ id });
+
+  res.status(200).json({ user });
+});

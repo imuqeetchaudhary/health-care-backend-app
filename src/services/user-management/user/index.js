@@ -26,7 +26,18 @@ exports.findByEmail = ({ email }) => {
     where: { email },
     ..._prop.hideFieldsCondition(),
   });
-}
+};
+
+exports.listAllUsers = () => {
+  return db.User.findAll({
+    where: { isSuperuser: false },
+    ..._prop.hideFieldsCondition(),
+  });
+};
+
+exports.findById = ({ id }) => {
+  return db.User.findByPk(id, _prop.hideFieldsCondition("password"));
+};
 
 const _prop = {
   HIDDEN_FIELDS: ["createdAt", "updatedAt", "authType", "email"],

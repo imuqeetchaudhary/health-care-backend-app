@@ -17,4 +17,10 @@ router.post(
 
 router.post("/login", validation(loginSchema), userController.login);
 
+router.get("/profile", authentication, userController.profile);
+
+router.get("/get-all", authentication, userController.getAllUsers);
+
+router.get("/get/:id", authentication, userController.getSingleUser);
+
 module.exports = router;
