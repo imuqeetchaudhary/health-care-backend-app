@@ -10,9 +10,9 @@
 
 ```js
 {
-    email: String(*),
-    password: String(*),
-    displayName: String(*),
+    email: String,
+    password: String,
+    displayName: String,
 }
 ```
 
@@ -22,8 +22,8 @@
 
 ```js
 {
-    email: String(*),
-    password: String(*),
+    email: String,
+    password: String,
 }
 ```
 
