@@ -62,3 +62,30 @@
 ### to delete a single role
 
 - role/delete/:id: :delete :protected
+
+## Routes for menu
+
+### to create a new menu
+
+- menu/create :post :protected
+
+```js
+{
+    description: String,
+    link: String,
+    icon: String,
+    parentId: Number,
+}
+```
+
+### to get all menu
+
+- menu/get-all :get :protected
+
+### to get single menu
+
+- menu/get/:id: :get :protected
+
+### to delete a single menu
+
+- menu/delete/:id: :delete :protected

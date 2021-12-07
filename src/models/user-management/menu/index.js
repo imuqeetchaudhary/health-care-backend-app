@@ -13,11 +13,6 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
       },
-      description: {
-        type: DataTypes.STRING(55),
-        allowNull: false,
-        unique: true,
-      },
       link: {
         type: DataTypes.STRING(255),
         allowNull: false,
