@@ -2,6 +2,12 @@ exports.init = (sequelize, DataTypes) => {
   const MenuAccessRoles = sequelize.define(
     "MenuAccessRoles",
     {
+      marId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
       menuId: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,

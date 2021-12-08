@@ -89,3 +89,16 @@
 ### to delete a single menu
 
 - menu/delete/:id: :delete :protected
+
+## Routes for Menu Access Roles
+
+### to create a menu access roles
+
+- menu-access-roles/create :post :protected
+
+```js
+{
+    roleId: Number,
+    menuIds: Number[],
+}
+```
