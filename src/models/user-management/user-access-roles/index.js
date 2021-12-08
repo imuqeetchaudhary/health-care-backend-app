@@ -2,6 +2,12 @@ exports.init = (sequelize, DataTypes) => {
   const UserAccessRoles = sequelize.define(
     "UserAccessRoles",
     {
+      uarId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
       userId: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,

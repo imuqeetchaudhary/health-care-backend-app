@@ -102,3 +102,16 @@
     menuIds: Number[],
 }
 ```
+
+## Routes for User Access Roles
+
+### to create a user access roles
+
+- user-access-roles/create :post :protected
+
+```js
+{
+    userId: Number,
+    roleIds: Number[],
+}
+```
