@@ -103,6 +103,10 @@
 }
 ```
 
+### to get all menus for a specific role
+
+- menu-access-roles/get-all/:id: :get :protected (where id = roleId)
+
 ## Routes for User Access Roles
 
 ### to create a user access roles

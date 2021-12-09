@@ -14,10 +14,6 @@ router.post(
   menuAccessRoleController.createMenuAccessRole
 );
 
-// router.get("/get-all", authentication, menuAccessRoleController.getAllMenuAccessRoles);
-
-// router.get("/get/:id", authentication, menuAccessRoleController.getSingleMenuAccessRole);
-
-// router.delete("/delete/:id", authentication, menuAccessRoleController.deleteMenuAccessRole);
+router.get("/get-all/:id", authentication, menuAccessRoleController.getAllMenusForSingleRole);
 
 module.exports = router;
