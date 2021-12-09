@@ -14,4 +14,10 @@ router.post(
   userAccessRoleController.createUserAccessRole
 );
 
+router.get(
+  "/get-all/:id",
+  authentication,
+  userAccessRoleController.getAllUsersForSingleRole
+);
+
 module.exports = router;

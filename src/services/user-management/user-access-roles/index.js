@@ -26,3 +26,9 @@ exports.saveUserAccessRole = async ({ userId, roleIds, actionPerformedBy }) => {
     throw err;
   }
 };
+
+exports.listAllAssignedUsersForRole = ({ userId }) => {
+  return db.UserAccessRoles.findAll({
+    where: { userId },
+  });
+};

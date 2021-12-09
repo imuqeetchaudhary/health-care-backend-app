@@ -103,7 +103,7 @@
 }
 ```
 
-### to get all menus for a specific role
+### to get all assigned menus for a specific role
 
 - menu-access-roles/get-all/:id: :get :protected (where id = roleId)
 
@@ -119,3 +119,7 @@
     roleIds: Number[],
 }
 ```
+
+### to get all assigned roles for a specific user
+
+- user-access-roles/get-all/:id: :get :protected (where id = userId)

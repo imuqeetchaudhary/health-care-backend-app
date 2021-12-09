@@ -17,3 +17,14 @@ exports.createUserAccessRole = promise(async (req, res) => {
     userAccessRole,
   });
 });
+
+exports.getAllUsersForSingleRole = promise(async (req, res) => {
+  const { id } = req.params;
+  const userId = id;
+
+  const userAccessRole =
+    await userAccessRoleService.listAllAssignedUsersForRole({
+      userId,
+    });
+  res.status(200).json({ userAccessRole });
+});
