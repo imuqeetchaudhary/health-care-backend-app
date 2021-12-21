@@ -28,3 +28,8 @@ exports.getAllUsersForSingleRole = promise(async (req, res) => {
     });
   res.status(200).json({ userAccessRole });
 });
+
+exports.getAllUserAccessRoles = promise(async (req, res) => {
+  const userAccessRole = await userAccessRoleService.listAllUserAccessRoles();
+  res.status(200).json({ userAccessRole });
+});

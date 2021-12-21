@@ -145,6 +145,10 @@
 }
 ```
 
+### to get all user access roles
+
+- user-access-roles/get-all/ :get :protected
+
 ### to get all assigned roles for a specific user
 
 - user-access-roles/get-all/:id: :get :protected (where id = userId)

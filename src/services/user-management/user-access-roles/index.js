@@ -32,3 +32,7 @@ exports.listAllAssignedUsersForRole = ({ userId }) => {
     where: { userId },
   });
 };
+
+exports.listAllUserAccessRoles = () => {
+  return db.UserAccessRoles.findAll();
+};

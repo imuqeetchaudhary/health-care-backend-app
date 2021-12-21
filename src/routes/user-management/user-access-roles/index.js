@@ -15,6 +15,12 @@ router.post(
 );
 
 router.get(
+  "/get-all",
+  authentication,
+  userAccessRoleController.getAllUserAccessRoles
+);
+
+router.get(
   "/get-all/:id",
   authentication,
   userAccessRoleController.getAllUsersForSingleRole
