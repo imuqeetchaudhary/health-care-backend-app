@@ -75,6 +75,7 @@
     link: String,
     icon: String,
     parentId: Number,
+    categoryId: Number,
 }
 ```
 
