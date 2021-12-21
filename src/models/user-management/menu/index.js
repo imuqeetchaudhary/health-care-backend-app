@@ -20,6 +20,9 @@ exports.init = (sequelize, DataTypes) => {
       icon: {
         type: DataTypes.STRING(500),
       },
+      categoryId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+      },
       parentId: {
         type: DataTypes.INTEGER.UNSIGNED,
       },

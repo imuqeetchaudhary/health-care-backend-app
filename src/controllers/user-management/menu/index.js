@@ -3,7 +3,7 @@ const { promise } = require("../../../middlewares/promise");
 const Exceptions = require("../../../utils/custom-exceptions");
 
 exports.createMenu = promise(async (req, res) => {
-  let { description, link, icon, parentId } = req.body;
+  let { description, link, icon, parentId, categoryId } = req.body;
   const actionPerformedBy = req.user.userId;
 
   if (parentId == 0) {
@@ -15,6 +15,7 @@ exports.createMenu = promise(async (req, res) => {
     link,
     icon,
     parentId,
+    categoryId,
     actionPerformedBy,
   });
 

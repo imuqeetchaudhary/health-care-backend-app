@@ -7,6 +7,7 @@ exports.saveMenu = async ({
   link,
   icon,
   parentId,
+  categoryId,
   actionPerformedBy,
 }) => {
   const menu = {
@@ -14,6 +15,7 @@ exports.saveMenu = async ({
     link,
     icon,
     parentId,
+    categoryId,
     createdBy: actionPerformedBy,
     updatedBy: actionPerformedBy,
   };
