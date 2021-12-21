@@ -63,7 +63,31 @@
 
 - role/delete/:id: :delete :protected
 
-## Routes for menu
+## Routes for Menu Category
+
+### to create a new menu category
+
+- menu-category/create :post :protected
+
+```js
+{
+    description: String,
+}
+```
+
+### to get all menu category
+
+- menu-category/get-all :get :protected
+
+### to get single menu category
+
+- menu-category/get/:id: :get :protected
+
+### to delete a single menu category
+
+- menu-category/delete/:id: :delete :protected
+
+## Routes for Menu
 
 ### to create a new menu
 
