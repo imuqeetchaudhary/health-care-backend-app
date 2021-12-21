@@ -14,6 +14,16 @@ router.post(
   menuAccessRoleController.createMenuAccessRole
 );
 
-router.get("/get-all/:id", authentication, menuAccessRoleController.getAllMenusForSingleRole);
+router.get(
+  "/get-all",
+  authentication,
+  menuAccessRoleController.getAllAllMenuAccessRoles
+);
+
+router.get(
+  "/get-all/:id",
+  authentication,
+  menuAccessRoleController.getAllMenusForSingleRole
+);
 
 module.exports = router;

@@ -41,3 +41,7 @@ exports.listAllAssignedMenusForRole = ({ roleId }) => {
     where: { roleId },
   });
 };
+
+exports.listAllMenuAccessRoles = () => {
+  return db.MenuAccessRoles.findAll();
+};

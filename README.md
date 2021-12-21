@@ -128,6 +128,10 @@
 }
 ```
 
+### to get all menu access roles
+
+- menu-access-roles/get-all/ :get :protected
+
 ### to get all assigned menus for a specific role
 
 - menu-access-roles/get-all/:id: :get :protected (where id = roleId)

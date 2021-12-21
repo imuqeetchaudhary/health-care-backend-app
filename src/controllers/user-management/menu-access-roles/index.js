@@ -27,3 +27,8 @@ exports.getAllMenusForSingleRole = promise(async (req, res) => {
   });
   res.status(200).json({ menuAccessRole });
 });
+
+exports.getAllAllMenuAccessRoles = promise(async (req, res) => {
+  const menuAccessRole = await menuAccessRoleService.listAllMenuAccessRoles();
+  res.status(200).json({ menuAccessRole });
+});
