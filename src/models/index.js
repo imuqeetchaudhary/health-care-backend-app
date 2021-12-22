@@ -21,7 +21,7 @@ const userAccessRoles = require("./user-management/user-access-roles");
 const User = user.init(dbClient, DataTypes);
 const Role = role.init(dbClient, DataTypes);
 const MenuCategory = menuCategory.init(dbClient, DataTypes);
-const Menu = menu.init(dbClient, DataTypes);
+const Menu = menu.init(dbClient, DataTypes, { MenuCategory });
 const MenuAccessRoles = menuAccessRoles.init(dbClient, DataTypes, {
   Menu,
   Role,

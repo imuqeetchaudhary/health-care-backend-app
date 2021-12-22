@@ -1,4 +1,4 @@
-exports.init = (sequelize, DataTypes) => {
+exports.init = (sequelize, DataTypes, { MenuCategory }) => {
   const Menu = sequelize.define(
     "Menu",
     {
@@ -37,5 +37,9 @@ exports.init = (sequelize, DataTypes) => {
     },
     { underscored: true, tableName: "ad_menu" }
   );
+
+  MenuCategory.hasMany(Menu, { foreignKey: "category_id" });
+  Menu.belongsTo(MenuCategory, { foreignKey: "category_id" });
+
   return Menu;
 };

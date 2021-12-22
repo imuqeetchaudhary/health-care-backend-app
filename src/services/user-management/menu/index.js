@@ -33,7 +33,20 @@ exports.saveMenu = async ({
 
 exports.listAllMenus = () => {
   return db.Menu.findAll({
-    attributes: ["menuId", "description", "link", "icon", "parentId", "categoryId"],
+    attributes: [
+      "menuId",
+      "description",
+      "link",
+      "icon",
+      "parentId",
+      "categoryId",
+    ],
+    include: [
+      {
+        model: db.MenuCategory,
+        attributes: ["description"],
+      },
+    ],
   });
 };
 
