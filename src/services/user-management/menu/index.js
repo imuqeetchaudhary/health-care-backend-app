@@ -33,7 +33,7 @@ exports.saveMenu = async ({
 
 exports.listAllMenus = () => {
   return db.Menu.findAll({
-    attributes: ["menuId", "description", "link", "icon", "parentId"],
+    attributes: ["menuId", "description", "link", "icon", "parentId", "categoryId"],
   });
 };
 
