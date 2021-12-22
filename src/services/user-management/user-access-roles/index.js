@@ -30,9 +30,12 @@ exports.saveUserAccessRole = async ({ userId, roleIds, actionPerformedBy }) => {
 exports.listAllAssignedUsersForRole = ({ userId }) => {
   return db.UserAccessRoles.findAll({
     where: { userId },
+    include: [db.User, db.Role],
   });
 };
 
 exports.listAllUserAccessRoles = () => {
-  return db.UserAccessRoles.findAll();
+  return db.UserAccessRoles.findAll({
+    include: [db.User, db.Role],
+  });
 };

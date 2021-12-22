@@ -1,4 +1,4 @@
-exports.init = (sequelize, DataTypes) => {
+exports.init = (sequelize, DataTypes, { User, Role }) => {
   const UserAccessRoles = sequelize.define(
     "UserAccessRoles",
     {
@@ -27,5 +27,12 @@ exports.init = (sequelize, DataTypes) => {
     },
     { underscored: true, tableName: "ad_user_access_roles" }
   );
+
+  User.hasMany(UserAccessRoles, { foreignKey: "user_id" });
+  UserAccessRoles.belongsTo(User, { foreignKey: "user_id" });
+
+  Role.hasMany(UserAccessRoles, { foreignKey: "role_id" });
+  UserAccessRoles.belongsTo(Role, { foreignKey: "role_id" });
+
   return UserAccessRoles;
 };

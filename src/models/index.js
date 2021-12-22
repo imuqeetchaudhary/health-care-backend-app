@@ -23,7 +23,10 @@ const Role = role.init(dbClient, DataTypes);
 const MenuCategory = menuCategory.init(dbClient, DataTypes);
 const Menu = menu.init(dbClient, DataTypes);
 const MenuAccessRoles = menuAccessRoles.init(dbClient, DataTypes);
-const UserAccessRoles = userAccessRoles.init(dbClient, DataTypes);
+const UserAccessRoles = userAccessRoles.init(dbClient, DataTypes, {
+  User,
+  Role,
+});
 
 db.User = User;
 db.Role = Role;
