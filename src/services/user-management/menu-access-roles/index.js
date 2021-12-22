@@ -43,13 +43,12 @@ exports.listAllAssignedMenusForRole = ({ roleId }) => {
     include: [
       {
         model: db.Menu,
-        attributes: [
-          "menuId",
-          "description",
-          "link",
-          "icon",
-          "parentId",
-          "categoryId",
+        attributes: ["menuId", "description", "link", "icon", "parentId"],
+        include: [
+          {
+            model: db.MenuCategory,
+            attributes: ["categoryId", "description"],
+          },
         ],
       },
       {
