@@ -73,6 +73,12 @@ exports.listAllMenuAccessRoles = () => {
           "parentId",
           "categoryId",
         ],
+        include: [
+          {
+            model: db.MenuCategory,
+            attributes: ["categoryId", "description"],
+          },
+        ],
       },
       {
         model: db.Role,
