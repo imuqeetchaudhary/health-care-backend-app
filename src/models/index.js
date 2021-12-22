@@ -11,6 +11,8 @@ const dbClient = getDbClient();
 const db = {};
 db.sequelize = dbClient;
 
+// User Management System
+
 const user = require("./user-management/user");
 const role = require("./user-management/role");
 const menuCategory = require("./user-management/menu_category");
@@ -37,5 +39,13 @@ db.MenuCategory = MenuCategory;
 db.Menu = Menu;
 db.MenuAccessRoles = MenuAccessRoles;
 db.UserAccessRoles = UserAccessRoles;
+
+// Hospital Management System
+
+const hospital = require("./hospital-management/hospital");
+
+const Hospital = hospital.init(dbClient, DataTypes);
+
+db.Hospital = Hospital;
 
 module.exports = db;
