@@ -19,7 +19,7 @@ exports.init = (sequelize, DataTypes) => {
       },
       image: {
         type: DataTypes.STRING(255),
-        allowNull: false,
+        allowNull: true,
       },
       maxDoctors: {
         type: DataTypes.INTEGER.UNSIGNED,

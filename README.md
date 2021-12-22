@@ -2,6 +2,8 @@
 
 ---
 
+# User Management System
+
 ## Routes for User Auth
 
 ### to register a user
@@ -156,3 +158,43 @@
 ### to get all assigned roles for a specific user
 
 - user-access-roles/get-all/:id: :get :protected (where id = userId)
+
+---
+
+# Hospital Management System
+
+## Routes for Hospital
+
+### to create a new hospital
+
+- hospital/create :post :protected
+
+```js
+{
+    hospitalName: String,
+    openingHours: String,
+    image: String,
+    maxDoctors: Number,
+    maxPatients: Number,
+    maxDepartments: Number,
+    city: String,
+    country: String,
+    area: String,
+    postalCode: String,
+    phoneNo: String,
+    email: String,
+    status: String,
+}
+```
+
+### to get all hospital
+
+- hospital/get-all :get :protected
+
+### to get single hospital
+
+- hospital/get/:id: :get :protected
+
+### to delete a single hospital
+
+- hospital/delete/:id: :delete :protected
