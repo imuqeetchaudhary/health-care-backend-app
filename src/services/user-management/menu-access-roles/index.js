@@ -42,8 +42,19 @@ exports.listAllAssignedMenusForRole = ({ roleId }) => {
     attributes: ["marId"],
     include: [
       {
-        model: db.User,
-        attributes: ["userId", "displayName", "email"],
+        model: db.Menu,
+        attributes: [
+          "menuId",
+          "description",
+          "link",
+          "icon",
+          "parentId",
+          "categoryId",
+        ],
+      },
+      {
+        model: db.Role,
+        attributes: ["roleId", "description"],
       },
     ],
   });
@@ -52,6 +63,22 @@ exports.listAllAssignedMenusForRole = ({ roleId }) => {
 exports.listAllMenuAccessRoles = () => {
   return db.MenuAccessRoles.findAll({
     attributes: ["marId"],
-    include: [db.Menu, db.Role],
+    include: [
+      {
+        model: db.Menu,
+        attributes: [
+          "menuId",
+          "description",
+          "link",
+          "icon",
+          "parentId",
+          "categoryId",
+        ],
+      },
+      {
+        model: db.Role,
+        attributes: ["roleId", "description"],
+      },
+    ],
   });
 };
