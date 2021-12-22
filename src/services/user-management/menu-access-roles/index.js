@@ -40,7 +40,12 @@ exports.listAllAssignedMenusForRole = ({ roleId }) => {
   return db.MenuAccessRoles.findAll({
     where: { roleId },
     attributes: ["marId"],
-    include: [db.Menu, db.Role],
+    include: [
+      {
+        model: db.User,
+        attributes: ["userId", "displayName", "email"],
+      },
+    ],
   });
 };
 

@@ -30,24 +30,32 @@ exports.saveUserAccessRole = async ({ userId, roleIds, actionPerformedBy }) => {
 exports.listAllAssignedUsersForRole = ({ userId }) => {
   return db.UserAccessRoles.findAll({
     where: { userId },
-    attributes: ["uarId", "roleId"],
-    include: [
-      {
-        model: db.User,
-        attributes: ["userId", "displayName", "email"],
-      }]
-  });
-};
-
-exports.listAllUserAccessRoles = () => {
-  return db.UserAccessRoles.findAll({
-    attributes: ["uarId", "roleId"],
+    attributes: ["uarId"],
     include: [
       {
         model: db.User,
         attributes: ["userId", "displayName", "email"],
       },
-      db.Role,
+      {
+        model: db.Role,
+        attributes: ["roleId", "description"],
+      },
+    ],
+  });
+};
+
+exports.listAllUserAccessRoles = () => {
+  return db.UserAccessRoles.findAll({
+    attributes: ["uarId"],
+    include: [
+      {
+        model: db.User,
+        attributes: ["userId", "displayName", "email"],
+      },
+      {
+        model: db.Role,
+        attributes: ["roleId", "description"],
+      },
     ],
   });
 };
