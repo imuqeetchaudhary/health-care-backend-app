@@ -22,7 +22,7 @@ exports.getAllMenusForSingleRole = promise(async (req, res) => {
   const { id } = req.params;
   const roleId = id;
 
-  const menuAccessRole = await menuAccessRoleService.listAllMenusForRole({
+  const menuAccessRole = await menuAccessRoleService.listAllAssignedMenusForRole({
     roleId,
   });
   res.status(200).json({ menuAccessRole });
