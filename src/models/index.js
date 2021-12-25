@@ -46,15 +46,18 @@ const hospital = require("./hospital-management/hospital");
 const department = require("./hospital-management/department");
 const doctor = require("./hospital-management/doctor");
 const drInDepart = require("./hospital-management/dr-in-depart");
+const qualification = require("./hospital-management/qualification");
 
 const Hospital = hospital.init(dbClient, DataTypes);
 const Department = department.init(dbClient, DataTypes, { Hospital });
 const Doctor = doctor.init(dbClient, DataTypes, { User });
 const DrInDepart = drInDepart.init(dbClient, DataTypes);
+const Qualification = qualification.init(dbClient, DataTypes, { Doctor });
 
 db.Hospital = Hospital;
 db.Department = Department;
 db.Doctor = Doctor;
 db.DrInDepart = DrInDepart;
+db.Qualification = Qualification;
 
 module.exports = db;
