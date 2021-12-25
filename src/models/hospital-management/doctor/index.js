@@ -16,7 +16,7 @@ exports.init = (sequelize, DataTypes, { User }) => {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
       },
-      availablityStatus: {
+      isAvailable: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },
