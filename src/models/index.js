@@ -43,9 +43,12 @@ db.UserAccessRoles = UserAccessRoles;
 // Hospital Management System
 
 const hospital = require("./hospital-management/hospital");
+const department = require("./hospital-management/department");
 
 const Hospital = hospital.init(dbClient, DataTypes);
+const Department = department.init(dbClient, DataTypes, { Hospital });
 
 db.Hospital = Hospital;
+db.Department = Department;
 
 module.exports = db;
