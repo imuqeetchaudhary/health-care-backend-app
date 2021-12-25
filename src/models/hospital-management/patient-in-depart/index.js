@@ -1,8 +1,8 @@
 exports.init = (sequelize, DataTypes) => {
-  const PatientsInDepart = sequelize.define(
-    "PatientsInDepart",
+  const PatientInDepart = sequelize.define(
+    "PatientInDepart",
     {
-      patientsInDepartId: {
+      patientInDepartId: {
         type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
@@ -25,8 +25,8 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { underscored: true, tableName: "patients_in_depart" }
+    { underscored: true, tableName: "patient_in_depart" }
   );
 
-  return PatientsInDepart;
+  return PatientInDepart;
 };
