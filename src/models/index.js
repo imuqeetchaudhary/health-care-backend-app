@@ -53,6 +53,7 @@ const patientInDepart = require("./hospital-management/patient-in-depart");
 const review = require("./hospital-management/review");
 const disease = require("./hospital-management/disease");
 const diseaseTreatedByDr = require("./hospital-management/disease-treated-by-dr");
+const appointment = require("./hospital-management/appointment");
 
 const Hospital = hospital.init(dbClient, DataTypes);
 const Department = department.init(dbClient, DataTypes, { Hospital });
@@ -65,6 +66,11 @@ const PatientInDepart = patientInDepart.init(dbClient, DataTypes);
 const Review = review.init(dbClient, DataTypes, { Patient, Doctor });
 const Disease = disease.init(dbClient, DataTypes);
 const DiseaseTreatedByDr = diseaseTreatedByDr.init(dbClient, DataTypes);
+const Appointment = appointment.init(dbClient, DataTypes, {
+  Patient,
+  Doctor,
+  Disease,
+});
 
 db.Hospital = Hospital;
 db.Department = Department;
@@ -77,5 +83,6 @@ db.PatientInDepart = PatientInDepart;
 db.Review = Review;
 db.Disease = Disease;
 db.DiseaseTreatedByDr = DiseaseTreatedByDr;
+db.Appointment = Appointment;
 
 module.exports = db;
