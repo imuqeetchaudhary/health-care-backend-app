@@ -15,3 +15,19 @@ exports.createHospitalSchema = yup.object().shape({
   email: yup.string().required(),
   status: yup.string().required(),
 });
+
+exports.updateHospitalSchema = yup.object().shape({
+  hospitalName: yup.string(),
+  openingHours: yup.string(),
+  image: yup.string(),
+  maxDoctors: yup.number(),
+  maxPatients: yup.number(),
+  maxDepartments: yup.number(),
+  city: yup.string(),
+  country: yup.string(),
+  area: yup.string(),
+  postalCode: yup.string(),
+  phoneNo: yup.string(),
+  email: yup.string(),
+  status: yup.string(),
+});

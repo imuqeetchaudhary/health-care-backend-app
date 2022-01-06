@@ -34,31 +34,31 @@ exports.init = (sequelize, DataTypes) => {
         allowNull: false,
       },
       city: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       country: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       area: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       postalCode: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       phoneNo: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       email: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       status: {
-        type: DataTypes.STRING(55),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       createdBy: {

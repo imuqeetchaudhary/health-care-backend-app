@@ -41,18 +41,69 @@ exports.saveHospital = async ({
     return newHospital;
   } catch (err) {
     if (dbUtils.isRecordDuplicate(err)) {
-      throw new Exceptions.BadRequest({ message: "Hospital already exists" });
+      throw new Exceptions.BadRequest({
+        message: "Hospital already exists",
+      });
     }
     throw err;
   }
 };
 
-exports.listAllHospitals = () => {
+exports.listAllHospital = () => {
   return db.Hospital.findAll({});
 };
 
 exports.findById = ({ id }) => {
   return db.Hospital.findByPk(id, _prop.hideFieldsCondition());
+};
+
+exports.updateHospital = async ({
+  hospitalId,
+  hospitalName,
+  openingHours,
+  image,
+  maxDoctors,
+  maxPatients,
+  maxDepartments,
+  city,
+  country,
+  area,
+  postalCode,
+  phoneNo,
+  email,
+  status,
+  actionPerformBy,
+}) => {
+  const hospital = {
+    hospitalName,
+    openingHours,
+    image,
+    maxDoctors,
+    maxPatients,
+    maxDepartments,
+    city,
+    country,
+    area,
+    postalCode,
+    phoneNo,
+    email,
+    status,
+    updatedBy: actionPerformBy,
+  };
+
+  try {
+    const updatedHospital = await db.Hospital.update(
+      { ...hospital },
+      { where: { hospitalId } }
+    );
+
+    if (dbUtils.isRecordFound(updatedHospital))
+      throw new Exceptions.NotFound({ message: "Hospital not found" });
+  } catch (err) {
+    if (dbUtils.isRecordDuplicate(err))
+      throw new Exceptions.BadRequest({ message: "Hospital already exists" });
+    throw err;
+  }
 };
 
 exports.deleteHospital = async ({ hospitalId }) => {

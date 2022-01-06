@@ -5,6 +5,7 @@ const { validation } = require("../../../middlewares/validation");
 const { authentication } = require("../../../middlewares/is-auth");
 const {
   createHospitalSchema,
+  updateHospitalSchema,
 } = require("../../../validations/hospital-management/hospital");
 
 router.post(
@@ -14,9 +15,16 @@ router.post(
   hospitalController.createHospital
 );
 
-router.get("/get-all", authentication, hospitalController.getAllHospitals);
+router.get("/get-all", authentication, hospitalController.getAllHospital);
 
 router.get("/get/:id", authentication, hospitalController.getSingleHospital);
+
+router.patch(
+  "/update/:id",
+  authentication,
+  validation(updateHospitalSchema),
+  hospitalController.updateHospital
+);
 
 router.delete("/delete/:id", authentication, hospitalController.deleteHospital);
 

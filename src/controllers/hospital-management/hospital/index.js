@@ -43,8 +43,8 @@ exports.createHospital = promise(async (req, res) => {
   });
 });
 
-exports.getAllHospitals = promise(async (req, res) => {
-  const hospital = await hospitalService.listAllHospitals();
+exports.getAllHospital = promise(async (req, res) => {
+  const hospital = await hospitalService.listAllHospital();
   res.status(200).json({ hospital });
 });
 
@@ -53,6 +53,47 @@ exports.getSingleHospital = promise(async (req, res) => {
 
   const hospital = await hospitalService.findById({ id });
   res.status(200).json({ hospital });
+});
+
+exports.updateHospital = promise(async (req, res) => {
+  const { id } = req.params;
+  const {
+    hospitalName,
+    openingHours,
+    image,
+    maxDoctors,
+    maxPatients,
+    maxDepartments,
+    city,
+    country,
+    area,
+    postalCode,
+    phoneNo,
+    email,
+    status,
+  } = req.body;
+  const hospitalId = id;
+  const actionPerformBy = req.user.userId;
+
+  const updateHospital = await hospitalService.updateHospital({
+    hospitalId,
+    hospitalName,
+    openingHours,
+    image,
+    maxDoctors,
+    maxPatients,
+    maxDepartments,
+    city,
+    country,
+    area,
+    postalCode,
+    phoneNo,
+    email,
+    status,
+    actionPerformBy,
+  });
+  console.log(updateHospital);
+  res.status(200).json({ message: "Successfully updated Hospital" });
 });
 
 exports.deleteHospital = promise(async (req, res) => {

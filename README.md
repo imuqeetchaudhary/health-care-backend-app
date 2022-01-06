@@ -195,6 +195,28 @@
 
 - hospital/get/:id: :get :protected
 
+### to update a new hospital
+
+- hospital/update/:id: :patch :protected
+
+```js
+{
+    hospitalName: String,
+    openingHours: String,
+    image: String,
+    maxDoctors: Number,
+    maxPatients: Number,
+    maxDepartments: Number,
+    city: String,
+    country: String,
+    area: String,
+    postalCode: String,
+    phoneNo: String,
+    email: String,
+    status: String,
+}
+```
+
 ### to delete a single hospital
 
 - hospital/delete/:id: :delete :protected
