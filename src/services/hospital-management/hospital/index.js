@@ -50,11 +50,45 @@ exports.saveHospital = async ({
 };
 
 exports.listAllHospital = () => {
-  return db.Hospital.findAll({});
+  return db.Hospital.findAll({
+    attributes: [
+      "hospitalId",
+      "hospitalName",
+      "openingHours",
+      "image",
+      "maxDoctors",
+      "maxPatients",
+      "maxDepartments",
+      "city",
+      "country",
+      "area",
+      "postalCode",
+      "phoneNo",
+      "email",
+      "status",
+    ],
+  });
 };
 
 exports.findById = ({ id }) => {
-  return db.Hospital.findByPk(id, _prop.hideFieldsCondition());
+  return db.Hospital.findByPk(id, {
+    attributes: [
+      "hospitalId",
+      "hospitalName",
+      "openingHours",
+      "image",
+      "maxDoctors",
+      "maxPatients",
+      "maxDepartments",
+      "city",
+      "country",
+      "area",
+      "postalCode",
+      "phoneNo",
+      "email",
+      "status",
+    ],
+  });
 };
 
 exports.updateHospital = async ({

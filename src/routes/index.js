@@ -24,7 +24,9 @@ router.use("/user-access-roles", userAccessRoles);
 // Hospital Management System
 
 const hospital = require("../routes/hospital-management/hospital");
+const department = require("../routes/hospital-management/department");
 
 router.use("/hospital", hospital);
+router.use("/department", department);
 
 module.exports = router;

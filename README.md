@@ -220,3 +220,52 @@
 ### to delete a single hospital
 
 - hospital/delete/:id: :delete :protected
+
+## Routes for department
+
+### to create a new department
+
+- department/create :post :protected
+
+```js
+{
+    departmentName: String,
+    image: String,
+    maxDoctors: Number,
+    maxPatients: Number,
+    phoneNo: String,
+    email: String,
+    status: String,
+    hospitalId: Number
+
+}
+```
+
+### to get all department
+
+- department/get-all :get :protected
+
+### to get single department
+
+- department/get/:id: :get :protected
+
+### to update a new department
+
+- department/update/:id: :patch :protected
+
+```js
+{
+    departmentName: String,
+    image: String,
+    maxDoctors: Number,
+    maxPatients: Number,
+    phoneNo: String,
+    email: String,
+    status: String,
+    hospitalId: Number
+}
+```
+
+### to delete a single department
+
+- department/delete/:id: :delete :protected
