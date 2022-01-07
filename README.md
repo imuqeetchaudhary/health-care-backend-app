@@ -173,7 +173,6 @@
 {
     hospitalName: String,
     openingHours: String,
-    image: String,
     maxDoctors: Number,
     maxPatients: Number,
     maxDepartments: Number,
@@ -203,7 +202,6 @@
 {
     hospitalName: String,
     openingHours: String,
-    image: String,
     maxDoctors: Number,
     maxPatients: Number,
     maxDepartments: Number,
@@ -230,7 +228,6 @@
 ```js
 {
     departmentName: String,
-    image: String,
     maxDoctors: Number,
     maxPatients: Number,
     phoneNo: String,
@@ -256,7 +253,6 @@
 ```js
 {
     departmentName: String,
-    image: String,
     maxDoctors: Number,
     maxPatients: Number,
     phoneNo: String,

@@ -5,7 +5,6 @@ const Exceptions = require("../../../utils/custom-exceptions");
 exports.createDepartment = promise(async (req, res) => {
   const {
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,
@@ -17,7 +16,6 @@ exports.createDepartment = promise(async (req, res) => {
 
   const department = await departmentService.saveDepartment({
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,
@@ -49,7 +47,6 @@ exports.updateDepartment = promise(async (req, res) => {
   const { id } = req.params;
   const {
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,
@@ -63,7 +60,6 @@ exports.updateDepartment = promise(async (req, res) => {
   const updatedepartment = await departmentService.updateDepartment({
     departmentId,
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,

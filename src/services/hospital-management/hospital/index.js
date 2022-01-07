@@ -5,7 +5,6 @@ const Exceptions = require("../../../utils/custom-exceptions");
 exports.saveHospital = async ({
   hospitalName,
   openingHours,
-  image,
   maxDoctors,
   maxPatients,
   maxDepartments,
@@ -21,7 +20,6 @@ exports.saveHospital = async ({
   const hospital = {
     hospitalName,
     openingHours,
-    image,
     maxDoctors,
     maxPatients,
     maxDepartments,
@@ -95,7 +93,6 @@ exports.updateHospital = async ({
   hospitalId,
   hospitalName,
   openingHours,
-  image,
   maxDoctors,
   maxPatients,
   maxDepartments,
@@ -111,7 +108,6 @@ exports.updateHospital = async ({
   const hospital = {
     hospitalName,
     openingHours,
-    image,
     maxDoctors,
     maxPatients,
     maxDepartments,

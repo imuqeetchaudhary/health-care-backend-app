@@ -4,7 +4,6 @@ const Exceptions = require("../../../utils/custom-exceptions");
 
 exports.saveDepartment = async ({
   departmentName,
-  image,
   maxDoctors,
   maxPatients,
   phoneNo,
@@ -15,7 +14,6 @@ exports.saveDepartment = async ({
 }) => {
   const department = {
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,
@@ -115,7 +113,6 @@ exports.findById = ({ id }) => {
 exports.updateDepartment = async ({
   departmentId,
   departmentName,
-  image,
   maxDoctors,
   maxPatients,
   phoneNo,
@@ -126,7 +123,6 @@ exports.updateDepartment = async ({
 }) => {
   const department = {
     departmentName,
-    image,
     maxDoctors,
     maxPatients,
     phoneNo,

@@ -3,7 +3,6 @@ const yup = require("yup");
 exports.createHospitalSchema = yup.object().shape({
   hospitalName: yup.string().required(),
   openingHours: yup.string().required(),
-  image: yup.string(),
   maxDoctors: yup.number().required(),
   maxPatients: yup.number().required(),
   maxDepartments: yup.number().required(),
@@ -19,7 +18,6 @@ exports.createHospitalSchema = yup.object().shape({
 exports.updateHospitalSchema = yup.object().shape({
   hospitalName: yup.string(),
   openingHours: yup.string(),
-  image: yup.string(),
   maxDoctors: yup.number(),
   maxPatients: yup.number(),
   maxDepartments: yup.number(),
