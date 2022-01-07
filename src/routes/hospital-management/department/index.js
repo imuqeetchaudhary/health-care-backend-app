@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const departmentController = require("../../../controllers/hospital-management/department");
+const { upload } = require("../../../middlewares/upload");
 const { validation } = require("../../../middlewares/validation");
 const { authentication } = require("../../../middlewares/is-auth");
+const departmentController = require("../../../controllers/hospital-management/department");
 const {
   createDepartmentSchema,
   updateDepartmentSchema,
@@ -15,9 +16,20 @@ router.post(
   departmentController.createDepartment
 );
 
+router.patch(
+  "/upload/:id",
+  authentication,
+  upload.single("image"),
+  departmentController.uploadImage
+);
+
 router.get("/get-all", authentication, departmentController.getAllDepartment);
 
-router.get("/get/:id", authentication, departmentController.getSingleDepartment);
+router.get(
+  "/get/:id",
+  authentication,
+  departmentController.getSingleDepartment
+);
 
 router.patch(
   "/update/:id",
@@ -26,6 +38,10 @@ router.patch(
   departmentController.updateDepartment
 );
 
-router.delete("/delete/:id", authentication, departmentController.deleteDepartment);
+router.delete(
+  "/delete/:id",
+  authentication,
+  departmentController.deleteDepartment
+);
 
 module.exports = router;

@@ -38,6 +38,26 @@ exports.saveDepartment = async ({
   }
 };
 
+exports.uploadImage = async ({ departmentId, image }) => {
+  const department = {
+    image,
+  };
+
+  try {
+    const updatedDepartment = await db.Department.update(
+      { ...department },
+      { where: { departmentId } }
+    );
+
+    if (dbUtils.isRecordFound(updatedDepartment))
+      throw new Exceptions.NotFound({ message: "Department not found" });
+  } catch (err) {
+    if (dbUtils.isRecordDuplicate(err))
+      throw new Exceptions.BadRequest({ message: "Department already exists" });
+    throw err;
+  }
+};
+
 exports.listAllDepartment = () => {
   return db.Department.findAll({
     attributes: [

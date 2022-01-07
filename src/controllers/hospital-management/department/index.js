@@ -31,6 +31,17 @@ exports.createDepartment = promise(async (req, res) => {
   });
 });
 
+exports.uploadImage = promise(async (req, res) => {
+  const { id } = req.params;
+  const departmentId = id;
+  const image = req.file.filename;
+  const uploadImage = await departmentService.uploadImage({
+    departmentId,
+    image,
+  });
+  res.status(200).json({ message: "Successfully uploaded image" });
+});
+
 exports.getAllDepartment = promise(async (req, res) => {
   const department = await departmentService.listAllDepartment();
   res.status(200).json({ department });

@@ -248,6 +248,16 @@
 }
 ```
 
+### to upload image
+
+- department/upload/:id: :patch :protected
+
+```js
+{
+    image: String, //as a form data
+}
+```
+
 ### to get all department
 
 - department/get-all :get :protected
