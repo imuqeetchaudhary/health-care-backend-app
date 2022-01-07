@@ -43,6 +43,14 @@ exports.createHospital = promise(async (req, res) => {
   });
 });
 
+exports.uploadImage = promise(async (req, res) => {
+  const { id } = req.params;
+  const hospitalId = id;
+  const image = req.file.filename;
+  const uploadImage = await hospitalService.uploadImage({ hospitalId, image });
+  res.status(200).json({ message: "Successfully uploaded image" });
+});
+
 exports.getAllHospital = promise(async (req, res) => {
   const hospital = await hospitalService.listAllHospital();
   res.status(200).json({ hospital });

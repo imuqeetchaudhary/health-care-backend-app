@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const hospitalController = require("../../../controllers/hospital-management/hospital");
+const { upload } = require("../../../middlewares/upload");
 const { validation } = require("../../../middlewares/validation");
 const { authentication } = require("../../../middlewares/is-auth");
+const hospitalController = require("../../../controllers/hospital-management/hospital");
 const {
   createHospitalSchema,
   updateHospitalSchema,
@@ -13,6 +14,13 @@ router.post(
   authentication,
   validation(createHospitalSchema),
   hospitalController.createHospital
+);
+
+router.patch(
+  "/upload/:id",
+  authentication,
+  upload.single("image"),
+  hospitalController.uploadImage
 );
 
 router.get("/get-all", authentication, hospitalController.getAllHospital);

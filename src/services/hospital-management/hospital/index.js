@@ -47,6 +47,26 @@ exports.saveHospital = async ({
   }
 };
 
+exports.uploadImage = async ({ hospitalId, image }) => {
+  const hospital = {
+    image,
+  };
+
+  try {
+    const updatedHospital = await db.Hospital.update(
+      { ...hospital },
+      { where: { hospitalId } }
+    );
+
+    if (dbUtils.isRecordFound(updatedHospital))
+      throw new Exceptions.NotFound({ message: "Hospital not found" });
+  } catch (err) {
+    if (dbUtils.isRecordDuplicate(err))
+      throw new Exceptions.BadRequest({ message: "Hospital already exists" });
+    throw err;
+  }
+};
+
 exports.listAllHospital = () => {
   return db.Hospital.findAll({
     attributes: [

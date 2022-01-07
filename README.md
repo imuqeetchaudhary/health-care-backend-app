@@ -186,6 +186,16 @@
 }
 ```
 
+### to upload image
+
+- hospital/upload/:id: :patch :protected
+
+```js
+{
+    image: String, //as a form data
+}
+```
+
 ### to get all hospital
 
 - hospital/get-all :get :protected
