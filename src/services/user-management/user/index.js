@@ -2,12 +2,21 @@ const db = require("../../../models");
 const dbUtils = require("../../error-check.util");
 const Exceptions = require("../../../utils/custom-exceptions");
 
-exports.saveUser = async ({ email, password, displayName, createdBy }) => {
+exports.saveUser = async ({
+  email,
+  password,
+  displayName,
+  isAdmin,
+  isSuperuser,
+  createdBy,
+}) => {
   const user = {
     username: email,
     email,
     password,
     displayName,
+    isAdmin,
+    isSuperuser,
   };
 
   try {

@@ -15,6 +15,8 @@
     email: String,
     password: String,
     displayName: String,
+    isAdmin: Boolean,
+    isSuperuser: Boolean,
 }
 ```
 

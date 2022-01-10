@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 exports.register = promise(async (req, res) => {
-  const { email, password, displayName } = req.body;
+  const { email, password, displayName, isAdmin, isSuperuser } = req.body;
   const createdBy = req.user.userId;
 
   const hashPassword = bcrypt.hashSync(password, 10);
@@ -15,6 +15,8 @@ exports.register = promise(async (req, res) => {
     email,
     password: hashPassword,
     displayName,
+    isAdmin,
+    isSuperuser,
     createdBy,
   });
 
