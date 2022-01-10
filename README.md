@@ -288,3 +288,48 @@
 ### to delete a single department
 
 - department/delete/:id: :delete :protected
+
+## Routes for Doctor
+
+### to create a new doctor
+
+- doctor/create :post :protected
+
+```js
+{
+    fee: Number,
+    experience: Number,
+    isAvailable: Boolean,
+    availablityDays: String,
+    activeHours: String,
+    userId: Number,
+
+}
+```
+
+### to get all doctor
+
+- doctor/get-all :get :protected
+
+### to get single doctor
+
+- doctor/get/:id: :get :protected
+
+### to update a new doctor
+
+- doctor/update/:id: :patch :protected
+
+```js
+{
+    fee: Number,
+    experience: Number,
+    isAvailable: Boolean,
+    availablityDays: String,
+    activeHours: String,
+    userId: Number,
+}
+```
+
+### to delete a single doctor
+
+- doctor/delete/:id: :delete :protected
