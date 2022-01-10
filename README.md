@@ -333,3 +333,39 @@
 ### to delete a single doctor
 
 - doctor/delete/:id: :delete :protected
+
+## Routes for Dr in Depart
+
+### to create a new dr in depart
+
+- dr-in-depart/create :post :protected
+
+```js
+{
+    departmentId: Number,
+    doctorId: Number,
+}
+```
+
+### to get all dr in depart
+
+- dr-in-depart/get-all :get :protected
+
+### to get single dr in depart
+
+- dr-in-depart/get/:id: :get :protected
+
+### to update a new dr in depart
+
+- dr-in-depart/update/:id: :patch :protected
+
+```js
+{
+    departmentId: Number,
+    doctorId: Number,
+}
+```
+
+### to delete a single dr in depart
+
+- dr-in-depart/delete/:id: :delete :protected
