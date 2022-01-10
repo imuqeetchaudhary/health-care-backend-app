@@ -87,6 +87,19 @@ exports.listAllHospital = () => {
       "email",
       "status",
     ],
+    include: [
+      {
+        model: db.User,
+        attributes: [
+          "userId",
+          "email",
+          "displayName",
+          "isActive",
+          "isAdmin",
+          "isSuperuser",
+        ],
+      },
+    ],
   });
 };
 
@@ -107,6 +120,19 @@ exports.findById = ({ id }) => {
       "phoneNo",
       "email",
       "status",
+    ],
+    include: [
+      {
+        model: db.User,
+        attributes: [
+          "userId",
+          "email",
+          "displayName",
+          "isActive",
+          "isAdmin",
+          "isSuperuser",
+        ],
+      },
     ],
   });
 };
