@@ -17,6 +17,7 @@ exports.createHospital = promise(async (req, res) => {
     phoneNo,
     email,
     status,
+    adminId,
   } = req.body;
   const actionPerformedBy = req.user.userId;
 
@@ -34,6 +35,7 @@ exports.createHospital = promise(async (req, res) => {
     phoneNo,
     email,
     status,
+    adminId,
     actionPerformedBy,
   });
 
@@ -79,6 +81,7 @@ exports.updateHospital = promise(async (req, res) => {
     phoneNo,
     email,
     status,
+    adminId,
   } = req.body;
   const hospitalId = id;
   const actionPerformBy = req.user.userId;
@@ -98,6 +101,7 @@ exports.updateHospital = promise(async (req, res) => {
     phoneNo,
     email,
     status,
+    adminId,
     actionPerformBy,
   });
   console.log(updateHospital);

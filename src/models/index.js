@@ -57,7 +57,7 @@ const appointment = require("./hospital-management/appointment");
 const patientPreviousDisease = require("./hospital-management/patient-previous-disease");
 const medicineHistory = require("./hospital-management/medicine-history");
 
-const Hospital = hospital.init(dbClient, DataTypes);
+const Hospital = hospital.init(dbClient, DataTypes, { User });
 const Department = department.init(dbClient, DataTypes, { Hospital });
 const Doctor = doctor.init(dbClient, DataTypes, { User });
 const DrInDepart = drInDepart.init(dbClient, DataTypes);

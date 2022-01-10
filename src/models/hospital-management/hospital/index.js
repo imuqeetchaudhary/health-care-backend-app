@@ -1,4 +1,4 @@
-exports.init = (sequelize, DataTypes) => {
+exports.init = (sequelize, DataTypes, { User }) => {
   const Hospital = sequelize.define(
     "Hospital",
     {
@@ -61,6 +61,10 @@ exports.init = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
+      adminId: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+      },
       createdBy: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
@@ -72,5 +76,9 @@ exports.init = (sequelize, DataTypes) => {
     },
     { underscored: true, tableName: "hospital" }
   );
+
+  User.hasMany(Hospital, { foreignKey: "admin_id" });
+  Hospital.belongsTo(User, { foreignKey: "admin_id" });
+
   return Hospital;
 };

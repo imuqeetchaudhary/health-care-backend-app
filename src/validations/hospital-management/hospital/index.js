@@ -13,6 +13,7 @@ exports.createHospitalSchema = yup.object().shape({
   phoneNo: yup.string().required(),
   email: yup.string().required(),
   status: yup.string().required(),
+  adminId: yup.number().required(),
 });
 
 exports.updateHospitalSchema = yup.object().shape({
@@ -28,4 +29,5 @@ exports.updateHospitalSchema = yup.object().shape({
   phoneNo: yup.string(),
   email: yup.string(),
   status: yup.string(),
+  adminId: yup.number(),
 });

@@ -183,6 +183,7 @@
     phoneNo: String,
     email: String,
     status: String,
+    adminId: Number,
 }
 ```
 

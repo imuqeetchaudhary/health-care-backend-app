@@ -15,6 +15,7 @@ exports.saveHospital = async ({
   phoneNo,
   email,
   status,
+  adminId,
   actionPerformedBy,
 }) => {
   const hospital = {
@@ -30,6 +31,7 @@ exports.saveHospital = async ({
     phoneNo,
     email,
     status,
+    adminId,
     createdBy: actionPerformedBy,
     updatedBy: actionPerformedBy,
   };
@@ -123,6 +125,7 @@ exports.updateHospital = async ({
   phoneNo,
   email,
   status,
+  adminId,
   actionPerformBy,
 }) => {
   const hospital = {
@@ -138,6 +141,7 @@ exports.updateHospital = async ({
     phoneNo,
     email,
     status,
+    adminId,
     updatedBy: actionPerformBy,
   };
 
