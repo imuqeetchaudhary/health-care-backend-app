@@ -187,7 +187,7 @@ CREATE TABLE `department` (
   CONSTRAINT `fk_department_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_department_hopital` FOREIGN KEY (`hospital_id`) REFERENCES `hospital` (`hospital_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_department_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,6 +321,7 @@ CREATE TABLE `hospital` (
   `phone_no` varchar(55) NOT NULL,
   `email` varchar(55) NOT NULL,
   `status` varchar(55) NOT NULL,
+  `admin_id` bigint unsigned NOT NULL,
   `created_by` bigint unsigned NOT NULL,
   `updated_by` bigint unsigned NOT NULL,
   `created_at` datetime NOT NULL,
@@ -329,9 +330,11 @@ CREATE TABLE `hospital` (
   UNIQUE KEY `hospital_name` (`hospital_name`),
   KEY `fk_hospital_created_by_idx` (`created_by`),
   KEY `fk_hospital_updated_by_idx` (`updated_by`),
+  KEY `fk_hospital_admin_idx` (`admin_id`),
+  CONSTRAINT `fk_hospital_admin` FOREIGN KEY (`admin_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_hospital_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_hospital_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -574,4 +577,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-27 15:36:25
+-- Dump completed on 2022-01-11  1:04:01
