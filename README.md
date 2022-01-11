@@ -369,3 +369,39 @@
 ### to delete a single dr in depart
 
 - dr-in-depart/delete/:id: :delete :protected
+
+## Routes for Qualification
+
+### to create a new qualification
+
+- qualification/create :post :protected
+
+```js
+{
+    details: String,
+    doctorId: Number,
+}
+```
+
+### to get all qualification
+
+- qualification/get-all :get :protected
+
+### to get single qualification
+
+- qualification/get/:id: :get :protected
+
+### to update a new qualification
+
+- qualification/update/:id: :patch :protected
+
+```js
+{
+    details: String,
+    doctorId: Number,
+}
+```
+
+### to delete a single qualification
+
+- qualification/delete/:id: :delete :protected
