@@ -1,4 +1,4 @@
-exports.init = (sequelize, DataTypes) => {
+exports.init = (sequelize, DataTypes, { Doctor, Disease }) => {
   const DiseaseTreatedByDr = sequelize.define(
     "DiseaseTreatedByDr",
     {
@@ -27,6 +27,12 @@ exports.init = (sequelize, DataTypes) => {
     },
     { underscored: true, tableName: "disease_treated_by_dr" }
   );
+
+  Disease.hasMany(DiseaseTreatedByDr, { foreignKey: "disease_id" });
+  DiseaseTreatedByDr.belongsTo(Disease, { foreignKey: "disease_id" });
+
+  Doctor.hasMany(DiseaseTreatedByDr, { foreignKey: "doctor_id" });
+  DiseaseTreatedByDr.belongsTo(Doctor, { foreignKey: "doctor_id" });
 
   return DiseaseTreatedByDr;
 };

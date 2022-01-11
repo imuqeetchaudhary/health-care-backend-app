@@ -67,7 +67,10 @@ const Patient = patient.init(dbClient, DataTypes, { User });
 const PatientInDepart = patientInDepart.init(dbClient, DataTypes);
 const Review = review.init(dbClient, DataTypes, { Patient, Doctor });
 const Disease = disease.init(dbClient, DataTypes);
-const DiseaseTreatedByDr = diseaseTreatedByDr.init(dbClient, DataTypes);
+const DiseaseTreatedByDr = diseaseTreatedByDr.init(dbClient, DataTypes, {
+  Doctor,
+  Disease,
+});
 const Appointment = appointment.init(dbClient, DataTypes, {
   Patient,
   Doctor,

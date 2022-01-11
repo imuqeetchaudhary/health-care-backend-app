@@ -485,3 +485,39 @@
 ### to delete a single disease
 
 - disease/delete/:id: :delete :protected
+
+## Routes for Disease Treated By Dr
+
+### to create a new disease treated by dr
+
+- disease-treated-by-dr/create :post :protected
+
+```js
+{
+    diseaseId: Number,
+    doctorId: Number,
+}
+```
+
+### to get all disease treated by dr
+
+- disease-treated-by-dr/get-all :get :protected
+
+### to get single disease treated by dr
+
+- disease-treated-by-dr/get/:id: :get :protected
+
+### to update a new disease treated by dr
+
+- disease-treated-by-dr/update/:id: :patch :protected
+
+```js
+{
+    diseaseId: Number,
+    doctorId: Number,
+}
+```
+
+### to delete a single disease treated by dr
+
+- disease-treated-by-dr/delete/:id: :delete :protected
