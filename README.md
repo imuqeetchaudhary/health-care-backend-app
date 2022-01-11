@@ -405,3 +405,39 @@
 ### to delete a single qualification
 
 - qualification/delete/:id: :delete :protected
+
+## Routes for specialization
+
+### to create a new specialization
+
+- specialization/create :post :protected
+
+```js
+{
+    details: String,
+    doctorId: Number,
+}
+```
+
+### to get all specialization
+
+- specialization/get-all :get :protected
+
+### to get single specialization
+
+- specialization/get/:id: :get :protected
+
+### to update a new specialization
+
+- specialization/update/:id: :patch :protected
+
+```js
+{
+    details: String,
+    doctorId: Number,
+}
+```
+
+### to delete a single specialization
+
+- specialization/delete/:id: :delete :protected
