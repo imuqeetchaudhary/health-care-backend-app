@@ -441,3 +441,47 @@
 ### to delete a single specialization
 
 - specialization/delete/:id: :delete :protected
+
+## Routes for Disease
+
+### to create a new disease
+
+- disease/create :post :protected
+
+```js
+{
+    diseaseName: String,
+    diseaseDescription: String,
+    diseaseSymptoms: String,
+    diseaseCauses: String,
+    diseaseType: String,
+    riskFactor: Number,
+}
+```
+
+### to get all disease
+
+- disease/get-all :get :protected
+
+### to get single disease
+
+- disease/get/:id: :get :protected
+
+### to update a new disease
+
+- disease/update/:id: :patch :protected
+
+```js
+{
+    diseaseName: String,
+    diseaseDescription: String,
+    diseaseSymptoms: String,
+    diseaseCauses: String,
+    diseaseType: String,
+    riskFactor: Number,
+}
+```
+
+### to delete a single disease
+
+- disease/delete/:id: :delete :protected
