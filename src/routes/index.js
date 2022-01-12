@@ -32,6 +32,7 @@ const specialization = require("../routes/hospital-management/specialization");
 const disease = require("../routes/hospital-management/disease");
 const diseaseTreatedByDr = require("../routes/hospital-management/disease-treated-by-dr");
 const patient = require("../routes/hospital-management/patient");
+const review = require("../routes/hospital-management/review");
 
 router.use("/hospital", hospital);
 router.use("/department", department);
@@ -42,5 +43,6 @@ router.use("/specialization", specialization);
 router.use("/disease", disease);
 router.use("/disease-treated-by-dr", diseaseTreatedByDr);
 router.use("/patient", patient);
+router.use("/review", review);
 
 module.exports = router;

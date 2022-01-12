@@ -557,3 +557,41 @@
 ### to delete a single patient
 
 - patient/delete/:id: :delete :protected
+
+## Routes for Review
+
+### to create a new review
+
+- review/create :post :protected
+
+```js
+{
+    stars: Number,
+    patientId: Number,
+    doctorId: Number,
+}
+```
+
+### to get all review
+
+- review/get-all :get :protected
+
+### to get single review
+
+- review/get/:id: :get :protected
+
+### to update a review
+
+- review/update/:id: :patch :protected
+
+```js
+{
+    stars: Number,
+    patientId: Number,
+    doctorId: Number,
+}
+```
+
+### to delete a single review
+
+- review/delete/:id: :delete :protected
