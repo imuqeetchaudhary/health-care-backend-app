@@ -207,7 +207,7 @@
 
 - hospital/get/:id: :get :protected
 
-### to update a new hospital
+### to update a hospital
 
 - hospital/update/:id: :patch :protected
 
@@ -269,7 +269,7 @@
 
 - department/get/:id: :get :protected
 
-### to update a new department
+### to update a department
 
 - department/update/:id: :patch :protected
 
@@ -315,7 +315,7 @@
 
 - doctor/get/:id: :get :protected
 
-### to update a new doctor
+### to update a doctor
 
 - doctor/update/:id: :patch :protected
 
@@ -355,7 +355,7 @@
 
 - dr-in-depart/get/:id: :get :protected
 
-### to update a new dr in depart
+### to update a dr in depart
 
 - dr-in-depart/update/:id: :patch :protected
 
@@ -391,7 +391,7 @@
 
 - qualification/get/:id: :get :protected
 
-### to update a new qualification
+### to update a qualification
 
 - qualification/update/:id: :patch :protected
 
@@ -427,7 +427,7 @@
 
 - specialization/get/:id: :get :protected
 
-### to update a new specialization
+### to update a specialization
 
 - specialization/update/:id: :patch :protected
 
@@ -467,7 +467,7 @@
 
 - disease/get/:id: :get :protected
 
-### to update a new disease
+### to update a disease
 
 - disease/update/:id: :patch :protected
 
@@ -507,7 +507,7 @@
 
 - disease-treated-by-dr/get/:id: :get :protected
 
-### to update a new disease treated by dr
+### to update a disease treated by dr
 
 - disease-treated-by-dr/update/:id: :patch :protected
 
@@ -521,3 +521,39 @@
 ### to delete a single disease treated by dr
 
 - disease-treated-by-dr/delete/:id: :delete :protected
+
+## Routes for patient
+
+### to create a new patient
+
+- patient/create :post :protected
+
+```js
+{
+    status: String,
+    userId: Number,
+}
+```
+
+### to get all patient
+
+- patient/get-all :get :protected
+
+### to get single patient
+
+- patient/get/:id: :get :protected
+
+### to update a patient
+
+- patient/update/:id: :patch :protected
+
+```js
+{
+    status: String,
+    userId: Number,
+}
+```
+
+### to delete a single patient
+
+- patient/delete/:id: :delete :protected
