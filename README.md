@@ -595,3 +595,39 @@
 ### to delete a single review
 
 - review/delete/:id: :delete :protected
+
+## Routes for Patient in Depart
+
+### to create a new patient in depart
+
+- patient-in-depart/create :post :protected
+
+```js
+{
+    departmentId: Number,
+    patientId: Number,
+}
+```
+
+### to get all patient in depart
+
+- dr-in-depart/get-all :get :protected
+
+### to get single patient in depart
+
+- patient-in-depart/get/:id: :get :protected
+
+### to update a patient in depart
+
+- patient-in-depart/update/:id: :patch :protected
+
+```js
+{
+    departmentId: Number,
+    patientId: Number,
+}
+```
+
+### to delete a single patient in depart
+
+- patient-in-depart/delete/:id: :delete :protected
