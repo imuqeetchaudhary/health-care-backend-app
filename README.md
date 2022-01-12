@@ -631,3 +631,43 @@
 ### to delete a single patient in depart
 
 - patient-in-depart/delete/:id: :delete :protected
+
+## Routes for Patient History
+
+### to create a new patient history
+
+- patient-history/create :post :protected
+
+```js
+{
+    durationUnit: String,
+    durationCount: String,
+    patientId: Number,
+    diseaseId: Number,
+}
+```
+
+### to get all patient history
+
+- dr-history/get-all :get :protected
+
+### to get single patient history
+
+- patient-history/get/:id: :get :protected
+
+### to update a patient history
+
+- patient-history/update/:id: :patch :protected
+
+```js
+{
+    durationUnit: String,
+    durationCount: String,
+    patientId: Number,
+    diseaseId: Number,
+}
+```
+
+### to delete a single patient history
+
+- patient-history/delete/:id: :delete :protected
