@@ -649,7 +649,7 @@
 
 ### to get all patient history
 
-- dr-history/get-all :get :protected
+- patient-history/get-all :get :protected
 
 ### to get single patient history
 
@@ -671,3 +671,47 @@
 ### to delete a single patient history
 
 - patient-history/delete/:id: :delete :protected
+
+## Routes for Appointment
+
+### to create a new appointment
+
+- appointment/create :post :protected
+
+```js
+{
+    appointmentDateTime: DateTime,
+    appointmentReason: String,
+    fee: Number,
+    patientId: Number,
+    diseaseId: Number,
+    doctorId: Number,
+}
+```
+
+### to get all appointment
+
+- appointment/get-all :get :protected
+
+### to get single appointment
+
+- appointment/get/:id: :get :protected
+
+### to update a appointment
+
+- appointment/update/:id: :patch :protected
+
+```js
+{
+    appointmentDateTime: DateTime,
+    appointmentReason: String,
+    fee: Number,
+    patientId: Number,
+    diseaseId: Number,
+    doctorId: Number,
+}
+```
+
+### to delete a single appointment
+
+- appointment/delete/:id: :delete :protected
