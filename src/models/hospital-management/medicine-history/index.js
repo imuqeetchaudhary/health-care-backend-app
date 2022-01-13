@@ -12,7 +12,7 @@ exports.init = (sequelize, DataTypes, { Appointment }) => {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
       },
-      AppointmentId: {
+      appointmentId: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
       },

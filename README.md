@@ -715,3 +715,39 @@
 ### to delete a single appointment
 
 - appointment/delete/:id: :delete :protected
+
+## Routes for Medicine History
+
+### to create a new medicine history
+
+- medicine-history/create :post :protected
+
+```js
+{
+    medicineId: Number,
+    appointmentId: Number,
+}
+```
+
+### to get all medicine history
+
+- medicine-history/get-all :get :protected
+
+### to get single medicine history
+
+- medicine-history/get/:id: :get :protected
+
+### to update a medicine history
+
+- medicine-history/update/:id: :patch :protected
+
+```js
+{
+    medicineId: Number,
+    appointmentId: Number,
+}
+```
+
+### to delete a single medicine history
+
+- medicine-history/delete/:id: :delete :protected
