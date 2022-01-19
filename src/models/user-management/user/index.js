@@ -42,6 +42,38 @@ exports.init = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      city: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      country: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      area: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      postalCode: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      phoneNumber: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: true,
+      },
+      image: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      dob: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      gender: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
     },
     { underscored: true, tableName: "user" }
   );

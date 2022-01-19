@@ -20,6 +20,33 @@
 }
 ```
 
+### to upload image
+
+- user/upload/:id: :patch :protected
+
+```js
+{
+    image: String, //as a form data
+}
+```
+
+### to update a user
+
+- user/update:id: :patch :protected
+
+```js
+{
+    city: String,
+    country: String,
+    area: String,
+    postalCode: String,
+    phoneNumber: Number,
+    image: String,
+    dob: Date,
+    gender: String,
+}
+```
+
 ### to login a user
 
 - user/login :post :protected

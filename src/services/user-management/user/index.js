@@ -30,6 +30,69 @@ exports.saveUser = async ({
   }
 };
 
+exports.uploadImage = async ({ userId, image }) => {
+  const user = {
+    image,
+  };
+
+  try {
+    const updatedUser = await db.User.update(
+      { ...user },
+      { where: { userId } }
+    );
+
+    if (dbUtils.isRecordFound(updatedUser))
+      throw new Exceptions.NotFound({ message: "user not found" });
+  } catch (err) {
+    if (dbUtils.isRecordDuplicate(err))
+      throw new Exceptions.BadRequest({ message: "user already exists" });
+    throw err;
+  }
+};
+
+exports.updateUser = async ({
+  userId,
+  city,
+  country,
+  area,
+  postalCode,
+  phoneNumber,
+  image,
+  dob,
+  gender,
+  actionPerformBy,
+}) => {
+  const user = {
+    city,
+    country,
+    area,
+    postalCode,
+    phoneNumber,
+    image,
+    dob,
+    gender,
+    updatedBy: actionPerformBy,
+  };
+
+  try {
+    const updatedUser = await db.User.update(
+      { ...user },
+      { where: { userId } }
+    );
+
+    if (dbUtils.isRecordFound(updatedUser))
+      throw new Exceptions.NotFound({
+        message: "User not found",
+      });
+  } catch (err) {
+    if (dbUtils.isRecordDuplicate(err))
+      throw new Exceptions.BadRequest({
+        message: "User already exists",
+      });
+    throw err;
+  }
+};
+
 exports.findByEmail = ({ email }) => {
   return db.User.findOne({
     where: { email },

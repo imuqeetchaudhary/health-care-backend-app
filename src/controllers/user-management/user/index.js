@@ -26,6 +26,39 @@ exports.register = promise(async (req, res) => {
   });
 });
 
+exports.uploadImage = promise(async (req, res) => {
+  const { id } = req.params;
+  const userId = id;
+  const image = req.file.filename;
+  const uploadImage = await userService.uploadImage({
+    userId,
+    image,
+  });
+  res.status(200).json({ message: "Successfully uploaded image" });
+});
+
+exports.updateUser = promise(async (req, res) => {
+  const { id } = req.params;
+  const { city, country, area, postalCode, phoneNumber, image, dob, gender } =
+    req.body;
+  const userId = id;
+  const actionPerformBy = req.user.userId;
+
+  const updateUser = await userService.updateUser({
+    userId,
+    city,
+    country,
+    area,
+    postalCode,
+    phoneNumber,
+    image,
+    dob,
+    gender,
+    actionPerformBy,
+  });
+  res.status(200).json({ message: "Successfully updated User" });
+});
+
 exports.login = promise(async (req, res) => {
   const { email, password } = req.body;
   const user = await userService.findByEmail({ email });
