@@ -4,40 +4,52 @@ const { validation } = require("../../../middlewares/validation");
 const { authentication } = require("../../../middlewares/is-auth");
 const qualificationController = require("../../../controllers/hospital-management/qualification");
 const {
-  createQualificationSchema,
-  updateQualificationSchema,
+    createQualificationSchema,
+    updateQualificationSchema,
 } = require("../../../validations/hospital-management/qualification");
 
 router.post(
-  "/create",
-  authentication,
-  validation(createQualificationSchema),
-  qualificationController.createQualification
+    "/create",
+    authentication,
+    validation(createQualificationSchema),
+    qualificationController.createQualification
 );
 
 router.get(
-  "/get-all",
-  authentication,
-  qualificationController.getAllQualification
+    "/get-all",
+    authentication,
+    qualificationController.getAllQualification
 );
 
 router.get(
-  "/get/:id",
-  authentication,
-  qualificationController.getSingleQualification
+    "/get/:id",
+    authentication,
+    qualificationController.getSingleQualification
+);
+
+router.get(
+    "/get-by-dr/:id",
+    authentication,
+    qualificationController.getSingleQualificationByDr
 );
 
 router.patch(
-  "/update/:id",
-  authentication,
-  validation(updateQualificationSchema),
-  qualificationController.updateQualification
+    "/update/:id",
+    authentication,
+    validation(updateQualificationSchema),
+    qualificationController.updateQualification
 );
 
 router.delete(
-  "/delete/:id",
-  authentication,
-  qualificationController.deleteQualification
+    "/delete/:id",
+    authentication,
+    qualificationController.deleteQualification
+);
+
+router.delete(
+    "/delete-by-doctor/:id",
+    authentication,
+    qualificationController.deleteQualificationByDr
 );
 
 module.exports = router;
