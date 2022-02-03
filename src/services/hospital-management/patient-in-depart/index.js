@@ -97,7 +97,7 @@ exports.findById = ({ id }) => {
 };
 
 exports.findByPid = ({ id }) => {
-  return db.PatientInDepart.findOne({
+  return db.PatientInDepart.findAll({
     where: {
       patientId: id,
     },
