@@ -65,7 +65,7 @@ exports.listAllPatientInDepart = () => {
 };
 
 exports.findById = ({ id }) => {
-  return db.PatientInDepart.findByPk(
+  return db.PatientInDepart.findAll(
     { where: { patientId: id } },
     {
       attributes: ["patientInDepartId"],
