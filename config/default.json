@@ -1,9 +1,9 @@
 {
     "db": {
-        "username": "root",
-        "password": "root",
-        "database": "health-care-app",
-        "host": "localhost",
+        "username": "juxvdgkcdp",
+        "password": "HealthCare0",
+        "database": "healthcare-server",
+        "host": "healthcare-server.mysql.database.azure.com",
         "port": 3306,
 
         "dialect": "mysql",
