@@ -20,6 +20,20 @@
 }
 ```
 
+### to register a user from mobile
+
+- user/register-for-mobile :post
+
+```js
+{
+    email: String,
+    password: String,
+    displayName: String,
+    isAdmin: Boolean,
+    isSuperuser: Boolean,
+}
+```
+
 ### to upload image
 
 - user/upload/:id: :patch :protected
