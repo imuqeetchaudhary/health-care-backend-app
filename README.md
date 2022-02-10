@@ -731,6 +731,9 @@
     patientId: Number,
     diseaseId: Number,
     doctorId: Number,
+    duration: String,
+	type: String,
+	status: String,
 }
 ```
 
@@ -754,6 +757,9 @@
     patientId: Number,
     diseaseId: Number,
     doctorId: Number,
+    duration: String,
+	type: String,
+	status: String,
 }
 ```
 
