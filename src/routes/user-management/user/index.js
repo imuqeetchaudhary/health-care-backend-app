@@ -45,4 +45,6 @@ router.get('/get-all', authentication, userController.getAllUsers);
 
 router.get('/get/:id', authentication, userController.getSingleUser);
 
+router.delete('/delete/:id', authentication, userController.deleteUser);
+
 module.exports = router;

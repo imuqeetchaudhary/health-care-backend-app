@@ -84,6 +84,10 @@
 
 - user/get/:id: :get :protected
 
+### to delete a single user
+
+- user/delete/:id: :delete :protected
+
 ## Routes for Roles
 
 ### to create a new role

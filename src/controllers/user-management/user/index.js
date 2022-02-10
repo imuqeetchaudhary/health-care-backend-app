@@ -133,3 +133,11 @@ exports.getSingleUser = promise(async (req, res) => {
 
 	res.status(200).json({ user });
 });
+
+exports.deleteUser = promise(async (req, res) => {
+	const { id } = req.params;
+
+	const deleteUser = await userService.deleteUser({ id });
+
+	res.status(200).json({ message: 'Successfully deleted User' });
+});
