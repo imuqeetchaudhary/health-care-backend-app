@@ -107,16 +107,9 @@ exports.login = promise(async (req, res) => {
 		config.get('jwt.secret')
 	);
 
-	const userId = user.userId;
-
 	res.status(200).json({
 		token,
-		userId,
-		username: user.username,
-		displayName: user.displayName,
-		isActive: user.isActive,
-		isAdmin: user.isAdmin,
-		isSuperuser: user.isSuperuser,
+		user,
 	});
 });
 
