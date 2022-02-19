@@ -854,3 +854,37 @@
 ### to delete a single pharmacy
 
 - pharmacy/delete/:id: :delete :protected
+
+## Routes for unit
+
+### to create a new unit
+
+- unit/create :post :protected
+
+```js
+{
+    description: String,
+}
+```
+
+### to get all unit
+
+- unit/get-all :get :protected
+
+### to get single unit
+
+- unit/get/:id: :get :protected
+
+### to update a unit
+
+- unit/update/:id: :patch :protected
+
+```js
+{
+    description: String,
+}
+```
+
+### to delete a single unit
+
+- unit/delete/:id: :delete :protected
