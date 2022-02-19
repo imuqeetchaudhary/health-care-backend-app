@@ -802,3 +802,55 @@
 ### to delete a single medicine history
 
 - medicine-history/delete/:id: :delete :protected
+
+# Routes for Pharmacy Management
+
+## Routes for pharmacy
+
+### to create a new pharmacy
+
+- pharmacy/create :post :protected
+
+```js
+{
+    pharmacyName: String,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    licenceNumber: String,
+    phoneNo: Number,
+    email: String,
+    adminId: Number,
+}
+```
+
+### to get all pharmacy
+
+- pharmacy/get-all :get :protected
+
+### to get single pharmacy
+
+- pharmacy/get/:id: :get :protected
+
+### to update a pharmacy
+
+- pharmacy/update/:id: :patch :protected
+
+```js
+{
+    pharmacyName: String,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    licenceNumber: String,
+    phoneNo: Number,
+    email: String,
+    adminId: Number,
+}
+```
+
+### to delete a single pharmacy
+
+- pharmacy/delete/:id: :delete :protected
