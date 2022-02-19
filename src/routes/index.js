@@ -57,8 +57,10 @@ router.use('/medicine-history', medicineHistory);
 
 const pharmacy = require('../routes/pharmacy-management/pharmacy');
 const unit = require('../routes/pharmacy-management/unit');
+const medicine = require('../routes/pharmacy-management/medicine');
 
 router.use('/pharmacy', pharmacy);
 router.use('/unit', unit);
+router.use('/medicine', medicine);
 
 module.exports = router;

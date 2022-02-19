@@ -338,6 +338,30 @@ CREATE TABLE `hospital` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `medicine`
+--
+
+DROP TABLE IF EXISTS `medicine`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicine` (
+  `medicine_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `medicine_name` varchar(55) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_by` bigint unsigned NOT NULL,
+  `updated_by` bigint unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`medicine_id`),
+  UNIQUE KEY `medicine_name_UNIQUE` (`medicine_name`),
+  KEY `fk_medicine_created_by_idx` (`created_by`),
+  KEY `fk_medicine_updated_by_idx` (`updated_by`),
+  CONSTRAINT `fk_medicine_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_medicine_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `medicine_history`
 --
 
@@ -640,4 +664,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-19 23:39:01
+-- Dump completed on 2022-02-19 23:53:59

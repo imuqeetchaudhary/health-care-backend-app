@@ -888,3 +888,39 @@
 ### to delete a single unit
 
 - unit/delete/:id: :delete :protected
+
+## Routes for Medicine
+
+### to create a new medicine
+
+- medicine/create :post :protected
+
+```js
+{
+    medicineName: String,
+    description: String,
+}
+```
+
+### to get all medicine
+
+- medicine/get-all :get :protected
+
+### to get single medicine
+
+- medicine/get/:id: :get :protected
+
+### to update a medicine
+
+- medicine/update/:id: :patch :protected
+
+```js
+{
+    medicineName: String,
+    description: String,
+}
+```
+
+### to delete a single medicine
+
+- medicine/delete/:id: :delete :protected
