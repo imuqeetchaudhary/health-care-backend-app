@@ -107,13 +107,16 @@ db.MedicineHistory = MedicineHistory;
 const pharmacy = require('./pharmacy-management/pharmacy');
 const unit = require('./pharmacy-management/unit');
 const medicine = require('./pharmacy-management/medicine');
+const medicineUnit = require('./pharmacy-management/medicine-unit');
 
 const Pharmacy = pharmacy.init(dbClient, DataTypes, { User });
 const Unit = unit.init(dbClient, DataTypes);
 const Medicine = medicine.init(dbClient, DataTypes);
+const MedicineUnit = medicineUnit.init(dbClient, DataTypes, { Medicine, Unit });
 
 db.Pharmacy = Pharmacy;
 db.Unit = Unit;
 db.Medicine = Medicine;
+db.MedicineUnit = MedicineUnit;
 
 module.exports = db;

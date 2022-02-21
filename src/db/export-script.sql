@@ -387,6 +387,36 @@ CREATE TABLE `medicine_history` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `medicine_unit`
+--
+
+DROP TABLE IF EXISTS `medicine_unit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicine_unit` (
+  `mu_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `medicine_id` bigint unsigned NOT NULL,
+  `unit_id` bigint unsigned NOT NULL,
+  `unit_number` bigint unsigned NOT NULL,
+  `price_per_unit` bigint unsigned NOT NULL,
+  `med_total_number` bigint unsigned NOT NULL,
+  `created_by` bigint unsigned NOT NULL,
+  `updated_by` bigint unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`mu_id`),
+  KEY `fk_mu_medicine_idx` (`medicine_id`),
+  KEY `fk_mu_unit_idx` (`unit_id`),
+  KEY `fk_mu_created_by_idx` (`created_by`),
+  KEY `fk_mu_updated_by_idx` (`updated_by`),
+  CONSTRAINT `fk_mu_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_mu_medicine` FOREIGN KEY (`medicine_id`) REFERENCES `medicine` (`medicine_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_mu_unit` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_mu_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `menu_category`
 --
 
@@ -664,4 +694,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-19 23:53:59
+-- Dump completed on 2022-02-22  1:29:48

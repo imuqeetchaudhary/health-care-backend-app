@@ -924,3 +924,44 @@
 ### to delete a single medicine
 
 - medicine/delete/:id: :delete :protected
+
+## Routes for Medicine Unit
+
+### to create a new medicine unit
+
+- medicine-unit/create :post :protected
+
+```js
+{
+    medicineId: Number,
+    unitId: Number,
+    unitNumber: Number,
+    pricePerUnit: Number,
+    medTotalNumber: Number,
+}
+```
+
+### to get all medicine unit
+
+- medicine-unit/get-all :get :protected
+
+### to get single medicine unit
+
+- medicine-unit/get/:medicineId :get :protected
+
+### to update a medicine unit
+
+- medicine-unit/update/:medicineId :patch :protected
+
+```js
+{
+    unitId: Number,
+    unitNumber: Number,
+    pricePerUnit: Number,
+    medTotalNumber: Number,
+}
+```
+
+### to delete a single medicine unit
+
+- medicine-unit/delete/:medicineId :delete :protected
