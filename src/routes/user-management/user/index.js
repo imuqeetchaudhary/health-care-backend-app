@@ -36,6 +36,13 @@ router.patch(
 	validation(updateUserSchema),
 	userController.updateUser
 );
+router.post(
+	'/reset-password',
+	userController.resetPassword
+);
+
+router.get('/getByEmail/:email', userController.getSingleUserByEmail);
+
 
 router.post('/login', validation(loginSchema), userController.login);
 

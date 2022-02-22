@@ -93,6 +93,29 @@ exports.findByEmail = ({ email }) => {
 		..._prop.hideFieldsCondition(),
 	});
 };
+exports.resetUserPassword = async ({
+	userId,
+	password
+}) => {
+
+	try {
+		const updatedUser = await db.User.update({ password: password }, { where: { userId } });
+
+		if (dbUtils.isRecordFound(updatedUser))
+			throw new Exceptions.NotFound({
+				message: 'User not found',
+			});
+	} catch (err) {
+		if (dbUtils.isRecordDuplicate(err))
+			throw new Exceptions.BadRequest({
+				message: 'User already exists',
+			});
+		throw err;
+	}
+};
+exports.findByEmail = ({ email }) => {
+	return db.User.findOne({where : {email: email }});
+};
 
 exports.listAllUsers = () => {
 	return db.User.findAll({

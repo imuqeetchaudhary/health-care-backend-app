@@ -112,6 +112,30 @@ exports.login = promise(async (req, res) => {
 		user,
 	});
 });
+exports.resetPassword = promise(async (req, res) => {
+	const { userId, password } = req.body;
+
+	const hashPassword = bcrypt.hashSync(password, 10);
+
+	const user = await userService.resetUserPassword({
+		userId,
+		password: hashPassword,
+	});
+
+	res.status(200).json({
+		message: 'Successfully updated password',
+		user,
+	});
+});
+
+
+exports.getSingleUserByEmail = promise(async (req, res) => {
+	const { email } = req.params;
+
+	const user = await userService.findByEmail({ email });
+
+	res.status(200).json({ user });
+});
 
 exports.profile = promise(async (req, res) => {
 	const id = req.user.userId;
