@@ -25,7 +25,7 @@ exports.init = (sequelize, DataTypes, { Doctor }) => {
         allowNull: false,
       },
     },
-    { underscored: true, tableName: "Qualification" }
+    { underscored: true, tableName: "qualification" }
   );
 
   Doctor.hasMany(Qualification, { foreignKey: "doctor_id" });
