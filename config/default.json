@@ -1,16 +1,11 @@
 {
     "db": {
-        "username": "azureadmin",
-        "password": "mysqlserver@786",
-        "database": "health-care-app",
-        "host": "healthcare0.mysql.database.azure.com",
+        
+        "username": "umbp6jyz0xq3vxyk", 
+        "password": "s6mFElfc8Q6SvXy1p4ST",
+        "database": "bjebq0uuje8gwaioauu6",
+        "host": "bjebq0uuje8gwaioauu6-mysql.services.clever-cloud.com",
         "port": 3306,
-
-        // "username": "root",
-        // "password": "root",
-        // "database": "health-care-app",
-        // "host": "localhost",
-        // "port": 3306,
 
         "dialect": "mysql",
         "logging": false,

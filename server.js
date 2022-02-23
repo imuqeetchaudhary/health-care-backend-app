@@ -17,5 +17,4 @@ async function bootstrap() {
     console.log("Some error while bootstrap the app ....", err);
   }
 }
-
 bootstrap();

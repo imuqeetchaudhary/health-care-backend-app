@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) =>
-	res.send({ message: 'Health Care Backend App RestApi' })
+router.get('/', (req, res) =>{
+	// res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    // res.header('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Accept'); // If needed
+    // res.header('Access-Control-Allow-Credentials', true); 
+	res.send({ message: 'Health Care Backend App RestApi' });
+}
 );
 
 // User Management System
