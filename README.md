@@ -941,3 +941,47 @@
 ### to delete a single medicine unit
 
 - medicine-unit/delete/:medicineId :delete :protected
+
+## Routes for order
+
+### to create a new order
+
+- order/create :post :protected
+
+```js
+{
+    pharmacyId: Number,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    status: String,
+    isPaid: Boolean,
+    medicine: [
+        {
+            muId: Number, ("muId === medicineUnitId")
+            quantity: Number,
+        }
+    ]
+}
+```
+
+### to get all order
+
+- order/get-all :get :protected
+
+### to get all order for pharmacy
+
+- order/get-all-for-pharmacy/:pharmacyId :get :protected
+
+### to get all order for user
+
+- order/get-all-for-user :get :protected
+
+### to get single order
+
+- order/get/:id: :get :protected
+
+### to delete a single order
+
+- order/delete/:id: :delete :protected

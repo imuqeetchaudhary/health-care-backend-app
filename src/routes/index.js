@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) =>{
+router.get('/', (req, res) => {
 	// res.header('Access-Control-Allow-Origin', '*');
-    // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    // res.header('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Accept'); // If needed
-    // res.header('Access-Control-Allow-Credentials', true); 
+	// res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+	// res.header('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Accept'); // If needed
+	// res.header('Access-Control-Allow-Credentials', true);
 	res.send({ message: 'Health Care Backend App RestApi' });
-}
-);
+});
 
 // User Management System
 
@@ -64,10 +63,12 @@ const pharmacy = require('../routes/pharmacy-management/pharmacy');
 const unit = require('../routes/pharmacy-management/unit');
 const medicine = require('../routes/pharmacy-management/medicine');
 const medicineUnit = require('../routes/pharmacy-management/medicine-unit');
+const order = require('../routes/pharmacy-management/order');
 
 router.use('/pharmacy', pharmacy);
 router.use('/unit', unit);
 router.use('/medicine', medicine);
 router.use('/medicine-unit', medicineUnit);
+router.use('/order', order);
 
 module.exports = router;
