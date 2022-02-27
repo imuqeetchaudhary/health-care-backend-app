@@ -130,6 +130,16 @@ exports.findByDepId = ({ id }) => {
 						model: db.User,
 						
 					},
+					{
+						model: db.Specialization,
+					},
+					{
+						model: db.Qualification,
+					},
+					{
+						model: db.DiseaseTreatedByDr,
+						include: db.Disease
+					}
 				],
 			},
 		],
