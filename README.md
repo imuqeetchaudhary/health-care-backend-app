@@ -778,3 +778,210 @@
 ### to delete a single medicine history
 
 - medicine-history/delete/:id: :delete :protected
+
+# Routes for Pharmacy Management
+
+## Routes for pharmacy
+
+### to create a new pharmacy
+
+- pharmacy/create :post :protected
+
+```js
+{
+    pharmacyName: String,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    licenceNumber: String,
+    phoneNo: Number,
+    email: String,
+    adminId: Number,
+}
+```
+
+### to get all pharmacy
+
+- pharmacy/get-all :get :protected
+
+### to get single pharmacy
+
+- pharmacy/get/:id: :get :protected
+
+### to update a pharmacy
+
+- pharmacy/update/:id: :patch :protected
+
+```js
+{
+    pharmacyName: String,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    licenceNumber: String,
+    phoneNo: Number,
+    email: String,
+    adminId: Number,
+}
+```
+
+### to delete a single pharmacy
+
+- pharmacy/delete/:id: :delete :protected
+
+## Routes for unit
+
+### to create a new unit
+
+- unit/create :post :protected
+
+```js
+{
+    description: String,
+}
+```
+
+### to get all unit
+
+- unit/get-all :get :protected
+
+### to get single unit
+
+- unit/get/:id: :get :protected
+
+### to update a unit
+
+- unit/update/:id: :patch :protected
+
+```js
+{
+    description: String,
+}
+```
+
+### to delete a single unit
+
+- unit/delete/:id: :delete :protected
+
+## Routes for Medicine
+
+### to create a new medicine
+
+- medicine/create :post :protected
+
+```js
+{
+    medicineName: String,
+    description: String,
+}
+```
+
+### to get all medicine
+
+- medicine/get-all :get :protected
+
+### to get single medicine
+
+- medicine/get/:id: :get :protected
+
+### to update a medicine
+
+- medicine/update/:id: :patch :protected
+
+```js
+{
+    medicineName: String,
+    description: String,
+}
+```
+
+### to delete a single medicine
+
+- medicine/delete/:id: :delete :protected
+
+## Routes for Medicine Unit
+
+### to create a new medicine unit
+
+- medicine-unit/create :post :protected
+
+```js
+{
+    medicineId: Number,
+    unitId: Number,
+    unitNumber: Number,
+    pricePerUnit: Number,
+    medTotalNumber: Number,
+}
+```
+
+### to get all medicine unit
+
+- medicine-unit/get-all :get :protected
+
+### to get single medicine unit
+
+- medicine-unit/get/:medicineId :get :protected
+
+### to update a medicine unit
+
+- medicine-unit/update/:medicineId :patch :protected
+
+```js
+{
+    unitId: Number,
+    unitNumber: Number,
+    pricePerUnit: Number,
+    medTotalNumber: Number,
+}
+```
+
+### to delete a single medicine unit
+
+- medicine-unit/delete/:medicineId :delete :protected
+
+## Routes for order
+
+### to create a new order
+
+- order/create :post :protected
+
+```js
+{
+    pharmacyId: Number,
+    area: String,
+    city: String,
+    country: String,
+    postalCode: String,
+    status: String,
+    isPaid: Boolean,
+    medicine: [
+        {
+            muId: Number, ("muId === medicineUnitId")
+            quantity: Number,
+        }
+    ]
+}
+```
+
+### to get all order
+
+- order/get-all :get :protected
+
+### to get all order for pharmacy
+
+- order/get-all-for-pharmacy/:pharmacyId :get :protected
+
+### to get all order for user
+
+- order/get-all-for-user :get :protected
+
+### to get single order
+
+- order/get/:id: :get :protected
+
+### to delete a single order
+
+- order/delete/:id: :delete :protected

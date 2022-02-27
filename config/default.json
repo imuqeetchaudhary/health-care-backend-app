@@ -1,7 +1,11 @@
 {
     "db": {
-        
-        "username": "umbp6jyz0xq3vxyk", 
+        // "username": "root",
+        // "password": "root",
+        // "database": "health-care-app",
+        // "host": "localhost",
+
+        "username": "umbp6jyz0xq3vxyk",
         "password": "s6mFElfc8Q6SvXy1p4ST",
         "database": "bjebq0uuje8gwaioauu6",
         "host": "bjebq0uuje8gwaioauu6-mysql.services.clever-cloud.com",
