@@ -30,6 +30,12 @@ router.get(
     drInDepartController.getSingleDrInDepartByDoctor
 )
 
+router.get(
+    "/get-by-dep/:id",
+    authentication,
+    drInDepartController.getSingleDrInDepartByDep
+)
+
 router.patch(
     "/update/:id",
     authentication,

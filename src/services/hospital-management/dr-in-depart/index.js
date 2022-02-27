@@ -113,6 +113,29 @@ exports.findByDoctorId = ({ id }) => {
 	});
 };
 
+exports.findByDepId = ({ id }) => {
+	return db.DrInDepart.findAll({
+		where: {
+			departmentId: id,
+		},
+		attributes: ['drInDepartId'],
+		include: [
+			{
+				model: db.Department,
+			},
+			{
+				model: db.Doctor,
+				include: [
+					{
+						model: db.User,
+						
+					},
+				],
+			},
+		],
+	});
+};
+
 exports.updateDrInDepart = async ({
 	drInDepartId,
 	departmentId,

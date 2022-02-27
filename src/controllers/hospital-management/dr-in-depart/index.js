@@ -38,6 +38,14 @@ exports.getSingleDrInDepartByDoctor = promise(async(req, res) => {
     res.status(200).json({ drInDepart });
 });
 
+exports.getSingleDrInDepartByDep = promise(async(req, res) => {
+    const { id } = req.params;
+    console.log({ id });
+
+    const drInDepart = await drInDepartService.findByDepId({ id });
+    res.status(200).json({ drInDepart });
+});
+
 exports.updateDrInDepart = promise(async(req, res) => {
     const { id } = req.params;
     const { departmentId, doctorId } = req.body;
