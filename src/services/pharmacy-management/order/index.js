@@ -59,15 +59,21 @@ exports.saveOrder = async ({
 };
 
 exports.listAllOrder = () => {
-	return db.Order.findAll();
+	return db.Order.findAll({ include: [{ model: db.User }, { model: db.Pharmacy }] });
 };
 
 exports.listAllOrderForPharmacy = ({ pharmacyId }) => {
-	return db.Order.findAll({ where: { pharmacyId } });
+	return db.Order.findAll({
+		where: { pharmacyId },
+		include: [{ model: db.User }, { model: db.Pharmacy }],
+	});
 };
 
 exports.listAllOrderForUser = ({ userId }) => {
-	return db.Order.findAll({ where: { userId } });
+	return db.Order.findAll({
+		where: { userId },
+		include: [{ model: db.User }, { model: db.Pharmacy }],
+	});
 };
 
 exports.findById = async ({ id }) => {
