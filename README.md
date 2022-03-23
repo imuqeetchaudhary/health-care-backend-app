@@ -985,3 +985,40 @@
 ### to delete a single order
 
 - order/delete/:id: :delete :protected
+
+## Routes for Medicine In Pharmacy
+
+### to create a new medicine in pharmacy
+
+- medicine-pharmacy/create :post :protected
+
+```js
+{
+    medicineUnitId: Number,
+    pharmacyId: Number,
+    quantity: Number,
+}
+```
+
+### to get all medicine in pharmacy
+
+- medicine-pharmacy/get-all :get :protected
+
+### to get single medicine in pharmacy
+
+- medicine-pharmacy/get/:medicineUnitId :get :protected
+
+### to update a medicine in pharmacy
+
+- medicine-pharmacy/:medicineUnitId :patch :protected
+
+```js
+{
+    pharmacyId: Number,
+    quantity: Number,
+}
+```
+
+### to delete a single medicine in pharmacy
+
+- medicine-pharmacy/:medicineUnitId :delete :protected

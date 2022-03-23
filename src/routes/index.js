@@ -64,11 +64,13 @@ const unit = require('../routes/pharmacy-management/unit');
 const medicine = require('../routes/pharmacy-management/medicine');
 const medicineUnit = require('../routes/pharmacy-management/medicine-unit');
 const order = require('../routes/pharmacy-management/order');
+const medicinePharmacy = require('../routes/pharmacy-management/medicine-pharmacy');
 
 router.use('/pharmacy', pharmacy);
 router.use('/unit', unit);
 router.use('/medicine', medicine);
 router.use('/medicine-unit', medicineUnit);
 router.use('/order', order);
+router.use('/medicine-pharmacy', medicinePharmacy);
 
 module.exports = router;
