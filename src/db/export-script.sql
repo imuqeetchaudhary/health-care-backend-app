@@ -132,12 +132,12 @@ DROP TABLE IF EXISTS `appointment`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `appointment` (
   `appointment_id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `appointment_date_time` datetime NOT NULL,
-  `appointment_reason` varchar(255) NOT NULL,
+  `appointment_date_time` datetime DEFAULT NULL,
+  `appointment_reason` varchar(1000) NOT NULL,
   `fee` bigint unsigned NOT NULL,
+  `status` varchar(45) NOT NULL,
   `patient_id` bigint unsigned NOT NULL,
   `doctor_id` bigint unsigned NOT NULL,
-  `disease_id` bigint unsigned NOT NULL,
   `created_by` bigint unsigned NOT NULL,
   `updated_by` bigint unsigned NOT NULL,
   `created_at` datetime NOT NULL,
@@ -147,9 +147,7 @@ CREATE TABLE `appointment` (
   KEY `fk_appointment_updated_by_idx` (`updated_by`),
   KEY `fk_appointment_patient_idx` (`patient_id`),
   KEY `fk_appointment_doctor_idx` (`doctor_id`),
-  KEY `fk_appointment_disease_idx` (`disease_id`),
   CONSTRAINT `fk_appointment_created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_appointment_disease` FOREIGN KEY (`disease_id`) REFERENCES `disease` (`disease_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_appointment_doctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_appointment_patient` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_appointment_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -437,7 +435,7 @@ CREATE TABLE `medicine_pharmacy` (
   CONSTRAINT `fk_medpharmacy_medunit` FOREIGN KEY (`medicine_unit_id`) REFERENCES `medicine_unit` (`mu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_medpharmacy_pharmacy` FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_medpharmacy_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,7 +465,7 @@ CREATE TABLE `medicine_unit` (
   CONSTRAINT `fk_mu_medicine` FOREIGN KEY (`medicine_id`) REFERENCES `medicine` (`medicine_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_mu_unit` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_mu_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -781,4 +779,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-23 15:08:58
+-- Dump completed on 2022-04-17 23:06:20

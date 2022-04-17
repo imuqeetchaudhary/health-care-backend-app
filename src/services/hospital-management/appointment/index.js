@@ -3,26 +3,18 @@ const dbUtils = require('../../error-check.util');
 const Exceptions = require('../../../utils/custom-exceptions');
 
 exports.saveAppointment = async ({
-	appointmentDateTime,
 	appointmentReason,
 	fee,
 	patientId,
-	diseaseId,
 	doctorId,
-	duration,
-	type,
 	status,
 	actionPerformedBy,
 }) => {
 	const Appointment = {
-		appointmentDateTime,
 		appointmentReason,
 		fee,
 		patientId,
-		diseaseId,
 		doctorId,
-		duration,
-		type,
 		status,
 		createdBy: actionPerformedBy,
 		updatedBy: actionPerformedBy,
@@ -160,32 +152,19 @@ exports.findById = ({ id }) => {
 exports.updateAppointment = async ({
 	appointmentId,
 	appointmentDateTime,
-	appointmentReason,
-	fee,
-	patientId,
-	diseaseId,
-	doctorId,
-	duration,
-	type,
 	status,
 	actionPerformBy,
 }) => {
-	const Appointment = {
+	const appointment = {
+		appointmentId,
 		appointmentDateTime,
-		appointmentReason,
-		fee,
-		patientId,
-		diseaseId,
-		doctorId,
-		duration,
-		type,
 		status,
 		updatedBy: actionPerformBy,
 	};
 
 	try {
 		const updatedAppointment = await db.Appointment.update(
-			{ ...Appointment },
+			{ ...appointment },
 			{ where: { appointmentId } }
 		);
 

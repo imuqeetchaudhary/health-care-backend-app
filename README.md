@@ -707,12 +707,10 @@
 
 ```js
 {
-    appointmentDateTime: DateTime,
     appointmentReason: String,
-    fee: Number,
     patientId: Number,
-    diseaseId: Number,
     doctorId: Number,
+    status: String,
 }
 ```
 
@@ -731,11 +729,7 @@
 ```js
 {
     appointmentDateTime: DateTime,
-    appointmentReason: String,
-    fee: Number,
-    patientId: Number,
-    diseaseId: Number,
-    doctorId: Number,
+    status: String,
 }
 ```
 

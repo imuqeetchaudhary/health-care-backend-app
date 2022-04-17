@@ -77,7 +77,6 @@ const DiseaseTreatedByDr = diseaseTreatedByDr.init(dbClient, DataTypes, {
 const Appointment = appointment.init(dbClient, DataTypes, {
 	Patient,
 	Doctor,
-	Disease,
 });
 const PatientHistory = patientHistory.init(dbClient, DataTypes, {
 	Patient,

@@ -1,4 +1,4 @@
-exports.init = (sequelize, DataTypes, { Patient, Doctor, Disease }) => {
+exports.init = (sequelize, DataTypes, { Patient, Doctor }) => {
 	const Appointment = sequelize.define(
 		'Appointment',
 		{
@@ -10,14 +10,18 @@ exports.init = (sequelize, DataTypes, { Patient, Doctor, Disease }) => {
 			},
 			appointmentDateTime: {
 				type: DataTypes.DATE,
-				allowNull: false,
+				allowNull: true,
 			},
 			appointmentReason: {
-				type: DataTypes.STRING(255),
+				type: DataTypes.STRING(1000),
 				allowNull: false,
 			},
 			fee: {
 				type: DataTypes.INTEGER.UNSIGNED,
+				allowNull: false,
+			},
+			status: {
+				type: DataTypes.STRING(255),
 				allowNull: false,
 			},
 			patientId: {
@@ -28,19 +32,6 @@ exports.init = (sequelize, DataTypes, { Patient, Doctor, Disease }) => {
 				type: DataTypes.INTEGER.UNSIGNED,
 				allowNull: false,
 			},
-			diseaseId: {
-				type: DataTypes.INTEGER.UNSIGNED,
-				allowNull: false,
-			},
-			duration: {
-				type: DataTypes.STRING(255),
-				allowNull: true,
-			},
-			type: {
-				type: DataTypes.STRING(255),
-				allowNull: true,
-			},
-			status: { type: DataTypes.STRING(255), allowNull: true },
 			createdBy: {
 				type: DataTypes.INTEGER.UNSIGNED,
 				allowNull: false,
@@ -58,9 +49,6 @@ exports.init = (sequelize, DataTypes, { Patient, Doctor, Disease }) => {
 
 	Doctor.hasMany(Appointment, { foreignKey: 'doctor_id' });
 	Appointment.belongsTo(Doctor, { foreignKey: 'doctor_id' });
-
-	Disease.hasMany(Appointment, { foreignKey: 'disease_id' });
-	Appointment.belongsTo(Disease, { foreignKey: 'disease_id' });
 
 	return Appointment;
 };
