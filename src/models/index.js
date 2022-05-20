@@ -133,4 +133,15 @@ db.Order = Order;
 db.MedicineOrder = MedicineOrder;
 db.MedicinePharmacy = MedicinePharmacy;
 
+// Vendor
+
+const post = require('./vendor/post');
+const response = require('./vendor/response');
+
+const Post = post.init(dbClient, DataTypes, { User });
+const Response = response.init(dbClient, DataTypes, { User, Post });
+
+db.Post = Post;
+db.Response = Response;
+
 module.exports = db;

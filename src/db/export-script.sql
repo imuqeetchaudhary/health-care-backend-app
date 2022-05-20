@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `health-care-app` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `health-care-app`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: health-care-app
@@ -151,7 +153,7 @@ CREATE TABLE `appointment` (
   CONSTRAINT `fk_appointment_doctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_appointment_patient` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_appointment_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -638,6 +640,36 @@ CREATE TABLE `pharmacy` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `post` (
+  `post_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `estimated_price` bigint unsigned NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `due_dtae` datetime NOT NULL,
+  `hospital_admin_id` bigint unsigned NOT NULL,
+  `created_by` bigint unsigned NOT NULL,
+  `updated_by` bigint unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `fk_hospital_admin_idx` (`hospital_admin_id`),
+  KEY `fk_post_created_by_idx` (`created_by`),
+  KEY `fk_post_updated_by_idx` (`updated_by`),
+  CONSTRAINT `fk_post_created` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_post_hospital_admin` FOREIGN KEY (`hospital_admin_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_post_updated` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `qualification`
 --
 
@@ -660,6 +692,37 @@ CREATE TABLE `qualification` (
   CONSTRAINT `fk_qualification_doctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_qualification_updated_by` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `response`
+--
+
+DROP TABLE IF EXISTS `response`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `response` (
+  `response_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `price` int unsigned NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `due_dtae` datetime NOT NULL,
+  `post_id` bigint unsigned NOT NULL,
+  `vendor_id` bigint unsigned NOT NULL,
+  `created_by` bigint unsigned NOT NULL,
+  `updated_by` bigint unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`response_id`),
+  KEY `fk_response_vendor_idx` (`vendor_id`),
+  KEY `fk_response_post_idx` (`post_id`),
+  KEY `fk_response_created_idx` (`created_by`),
+  KEY `fk_response_updated_idx` (`updated_by`),
+  CONSTRAINT `fk_response_created` FOREIGN KEY (`created_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_response_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_response_updated` FOREIGN KEY (`updated_by`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_response_vendor` FOREIGN KEY (`vendor_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,4 +842,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-17 23:06:20
+-- Dump completed on 2022-05-20 14:34:38
