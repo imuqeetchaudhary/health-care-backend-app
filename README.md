@@ -1076,3 +1076,49 @@
 ### to delete a post
 
 - post/:id: :delete :protected
+
+## Routes for response
+
+### to create a new response
+
+- response/create :post :protected
+
+```js
+{
+	price: Number,
+	description: String,
+	status: String,
+	dueDtae: Date,
+    postId: Number
+}
+```
+
+### to get all response
+
+- response/get-all :get :protected
+
+### to get all response by post id
+
+- response/get-all-by-post/:id: :get :protected
+
+### to get single response
+
+- response/get/:id: :get :protected
+
+### to update a response
+
+- response/:id: :patch :protected
+
+```js
+{
+	price: Number,
+	description: String,
+	status: String,
+	dueDtae: Date,
+    postId: Number
+}
+```
+
+### to delete a response
+
+- response/:id: :delete :protected

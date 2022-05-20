@@ -53,6 +53,7 @@ exports.updatePost = promise(async (req, res) => {
 	const { id } = req.params;
 	const postId = id;
 	const actionPerformedBy = req.user.userId;
+	const { title, description, category, estimatedPrice, status, dueDtae } = req.body;
 
 	const updatePost = await postService.updatePost({
 		postId,

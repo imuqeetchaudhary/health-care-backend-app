@@ -76,7 +76,9 @@ router.use('/medicine-pharmacy', medicinePharmacy);
 // Vendor
 
 const post = require('../routes/vendor/post');
+const response = require('../routes/vendor/response');
 
 router.use('/post', post);
+router.use('/response', response);
 
 module.exports = router;
