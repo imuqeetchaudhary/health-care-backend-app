@@ -73,4 +73,10 @@ router.use('/medicine-unit', medicineUnit);
 router.use('/order', order);
 router.use('/medicine-pharmacy', medicinePharmacy);
 
+// Vendor
+
+const post = require('../routes/vendor/post');
+
+router.use('/post', post);
+
 module.exports = router;

@@ -1016,3 +1016,63 @@
 ### to delete a single medicine in pharmacy
 
 - medicine-pharmacy/:medicineUnitId :delete :protected
+
+# Vendor
+
+## Routes for post
+
+### to create a new post
+
+- post/create :post :protected
+
+```js
+{
+	title: String,
+	description: String,
+	category: String,
+	estimatedPrice: Number,
+	status: String,
+	dueDtae: Date,
+}
+```
+
+### to get all post
+
+- post/get-all :get :protected
+
+### to get all post by hospital admin id
+
+- post/get-all-by-hospital-admin/:id: :get :protected
+
+### to get all post by category
+
+- post/get-all-by-category :get :protected
+
+```js
+{
+	category: String;
+}
+```
+
+### to get single post
+
+- post/get/:id: :get :protected
+
+### to update a post
+
+- post/:id: :patch :protected
+
+```js
+{
+	title: String,
+	description: String,
+	category: String,
+	estimatedPrice: Number,
+	status: String,
+	dueDtae: Date,
+}
+```
+
+### to delete a post
+
+- post/:id: :delete :protected
